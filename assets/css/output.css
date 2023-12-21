@@ -763,6 +763,10 @@ video {
   display: none;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .h-4 {
   height: 1rem;
 }
@@ -797,10 +801,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-screen {
-  width: 100vw;
 }
 
 .min-w-\[240px\] {
@@ -840,6 +840,10 @@ video {
   cursor: pointer;
 }
 
+.cursor-move {
+  cursor: move;
+}
+
 .resize-none {
   resize: none;
 }
@@ -852,6 +856,10 @@ video {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
@@ -896,6 +904,14 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .overflow-y-auto {
@@ -1049,6 +1065,10 @@ video {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .p-\[10px\] {
@@ -1310,6 +1330,11 @@ video {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+.shadow-sh-color {
+  --tw-shadow-color: var(--sh-color);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -1371,6 +1396,7 @@ body.active {
 .theme-light {
   --bg-page-color: #f4f7fd;
   --bg-content-color: #fff;
+  --sh-color: #000;
   --text-color: #000112;
   --lines-color: #e4ebfa;
   --gray-color: #828fa3;
@@ -1380,6 +1406,7 @@ body.active {
 .theme-dark {
   --bg-page-color: #20212c;
   --bg-content-color: #2b2c37;
+  --sh-color: #3e3f4e;
   --text-color: #fff;
   --lines-color: #3e3f4e;
   --gray-color: #fff;
@@ -1401,6 +1428,7 @@ body.active {
 [data-theme='light'] {
   --bg-page-color: #f4f7fd;
   --bg-content-color: #fff;
+  --sh-color: #000;
   --text-color: #000112;
   --lines-color: #e4ebfa;
   --gray-color: #828fa3;
@@ -1410,6 +1438,7 @@ body.active {
 [data-theme='dark'] {
   --bg-page-color: #20212c;
   --bg-content-color: #2b2c37;
+  --sh-color: #3e3f4e;
   --text-color: #fff;
   --lines-color: #3e3f4e;
   --gray-color: #fff;
@@ -1475,6 +1504,17 @@ body.active {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hover\:shadow-sm:hover {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hover\:shadow-sh-color:hover {
+  --tw-shadow-color: var(--sh-color);
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .hover\:transition:hover {

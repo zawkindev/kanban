@@ -15,6 +15,7 @@ body.active {
 .theme-light {
   --bg-page-color: #f4f7fd;
   --bg-content-color: #fff;
+  --sh-color: #000;
   --text-color: #000112;
   --lines-color: #e4ebfa;
   --gray-color: #828fa3;
@@ -24,6 +25,7 @@ body.active {
 .theme-dark {
   --bg-page-color: #20212c;
   --bg-content-color: #2b2c37;
+  --sh-color: #3e3f4e;
   --text-color: #fff;
   --lines-color: #3e3f4e;
   --gray-color: #fff;

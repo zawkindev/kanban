@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="w-full h-full" lang="en">
+<html class="w-full h-full dark" lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8"/>
@@ -11,6 +11,7 @@
     <link href="./assets/css/style.css" rel="stylesheet">
     <link href="/assets/css/output.css" rel="stylesheet">
     <link href="/components/layout/layout.css" rel="stylesheet">
+    <link href="/components/card/card.css" rel="stylesheet">
     <!-- <link
            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
            rel="stylesheet" /> -->
@@ -18,10 +19,10 @@
 
 </head>
 
-<body class="w-full h-full font-plus-jakarta-sans">
+<body class="w-full h-screen font-plus-jakarta-sans flex flex-col overflow-hidden">
 <div class="flex flex-col h-full w-full ">
     <!-- HEADER -->
-    <header class="flex items-center w-full px-6 z-0 bg-content-color">
+    <header class="flex items-center w-full px-6 z-10 bg-content-color h-20">
         <!-- HEADER LOGO -->
         <div
                 class="h-full flex text-black font-bold md:border-r-2 border-lines-color transition duration-200 ease-in-out focus:outline-none hover:opacity-80 ">
@@ -70,7 +71,7 @@
     </header>
 
     <!-- MAIN -->
-    <main class="relative flex w-full h-full">
+    <main class="relative flex flex-1 w-full h-full">
         <div class="blocker"></div>
         <!-- SIDEBAR -->
         <aside
@@ -133,31 +134,94 @@
             </div>
         </aside>
         <!-- LAYOUT -->
-        <section class="bg-page-color w-full h-full flex flex-col flex-1 justify-center border-t-2 border-lines-color "
-                 id="playGround">
-            <!-- <ul role="list" class=" flex gap-6">
-                    <li class="list-none">Column1</li>
-                    <li class="list-none">Column2</li>
-                    <li class="list-none">Column3</li>
-                 </ul> -->
-            <!-- WHEN NO COLUMN IS AVAILABLE, show this page -->
-            <!--      <div class="flex flex-col gap-8">-->
-            <!--          <span class=" text-center text-4.5 text-[#828FA3] mx-2 md:px-5">This board is empty. Create a new column to-->
-            <!--            get started.</span>-->
-            <!--        <button-->
-            <!--          class="btn rounded-full text-center py-3.5 mx-auto px-4 font-plus-jakarta-sans font-bold text-[15px] leading-5 cursor-pointer transition duration-200 ease-in-out focus:outline-none bg-primary-color  text-white hover:bg-primary-light-color"-->
-            <!--          id="addColumn">-->
-            <!--          +-->
-            <!--          Add New Column-->
-            <!--        </button>-->
-            <!--      </div>-->
-            <!-- SIDEBAR REVEALER -->
-            <div class="sidebar-revealer hidden md:block absolute left-0 bottom-10  py-5 ">
-                <i
-                        class="icon-eye btn rounded-r-full text-[16px] text-[#fff] hover:bg-primary-light-color cursor-pointer px-6 py-5  bg-[#635FC7] transition duration-200 ease-in-out focus:outline-none"></i>
+        <section
+                class="bg-page-color w-full h-full flex flex-row flex-1 border-t-2 border-lines-color overflow-auto gap-8 p-8 "
+                id="playGround">
+            <div class="column text-color flex flex-col gap-5">
+                <div
+
+                        class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
+                >
+                    <p class="card__title text-color capitalize">
+                        Create template structures
+                    </p>
+                    <p class="card__status text-slate-500">0 of 2 substasks</p>
+                </div>
+                <div
+
+                        class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
+                >
+                    <p class="card__title text-color capitalize">
+                        dfasdfasdfadsf template structures
+                    </p>
+                    <p class="card__status text-slate-500">0 of 2 substasks</p>
+                </div>
+                <div
+
+                        class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
+                >
+                    <p class="card__title text-color capitalize">
+                        Create template structures
+                    </p>
+                    <p class="card__status text-slate-500">0 of 2 substasks</p>
+                </div>
+                <div
+
+                        class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
+                >
+                    <p class="card__title text-color capitalize">
+                        Create template structures
+                    </p>
+                    <p class="card__status text-slate-500">0 of 2 substasks</p>
+                </div>
+
             </div>
-        </section>
-    </main>
+            <div class="column text-color flex flex-col gap-5">
+                <div
+
+                        class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
+                >
+                    <p class="card__title text-color capitalize">
+                        Create template structures
+                    </p>
+                    <p class="card__status text-slate-500">0 of 2 substasks</p>
+                </div>
+                <div
+
+                        class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
+                >
+                    <p class="card__title text-color capitalize">
+                        dfasdfasdfadsf template structures
+                    </p>
+                    <p class="card__status text-slate-500">0 of 2 substasks</p>
+                </div>
+                <div
+
+                        class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
+                >
+                    <p class="card__title text-color capitalize">
+                        Create template structures
+                    </p>
+                    <p class="card__status text-slate-500">0 of 2 substasks</p>
+                </div>
+                <div
+
+                        class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
+                >
+                    <p class="card__title text-color capitalize">
+                        Create template structures
+                    </p>
+                    <p class="card__status text-slate-500">0 of 2 substasks</p>
+                </div>
+
+            </div>
+<!-- SIDEBAR REVEALER -->
+<div class="absolute sidebar-revealer hidden md:block left-0 bottom-10  py-5 ">
+    <i
+            class="icon-eye btn rounded-r-full text-[16px] text-[#fff] hover:bg-primary-light-color cursor-pointer px-6 py-5  bg-[#635FC7] transition duration-200 ease-in-out focus:outline-none"></i>
+</div>
+</section>
+</main>
 
 </div>
 
@@ -168,6 +232,7 @@
 <script src="/components/header/header.js"></script>
 <script src="/components/sidebar/sidebar.js"></script>
 <script src="/components/layout/layout.js"></script>
+<script src="/components/card/card.js"></script>
 </body>
 
 </html>
