@@ -703,6 +703,10 @@ video {
   margin-bottom: 2rem;
 }
 
+.mb-96 {
+  margin-bottom: 24rem;
+}
+
 .ml-10 {
   margin-left: 2.5rem;
 }
@@ -749,10 +753,6 @@ video {
 
 .mt-9 {
   margin-top: 2.25rem;
-}
-
-.mb-96 {
-  margin-bottom: 24rem;
 }
 
 .block {
@@ -929,6 +929,10 @@ video {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-visible {
+  overflow: visible;
 }
 
 .overflow-scroll {
@@ -1451,7 +1455,7 @@ aside{
 }
 
 #newColumn{
-  overflow: visible;
+  justify-content: center;
 }
 
 .theme-light {
