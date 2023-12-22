@@ -118,23 +118,24 @@
                 <!-- BOARDS CREATED -->
                 <ul class="board-list w-full mr-6 md:flex md:flex-col">
                     <li
-                            class="board__item active min-w-[240px] flex items-start cursor-pointer transition duration-200 ease-in-out focus:outline-none hover:opacity-80 text-[#828FA3] text-[15px]"
+                            class="board__item active min-w-[240px] flex items-start cursor-pointer transition duration-400 ease-in-out focus:outline-none hover:opacity-80 text-[#828FA3] text-[15px]"
                     >
-                        <a
-                                class="board__link active flex items-center py-4 px-8"
+                        <button
+                                class="btn active board__link w-full flex items-center gap-4 text-[#828fa3] rounded-r-full text-left font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[15px] focus:outline-none hover:bg-btn-hover-color hover:text-primary-color md:mr-6 p-[10px] md:py-4 px-6"
                                 href="#"
+                                itemid="1"
                         >
                             <i class="icon-layout block mr-4"></i>
                             <span class="block pr-15">Platform Launch</span>
-                        </a>
+                        </button>
                     </li>
                     <li
-                            class="board__item active flex items-center cursor-pointer text-[#828FA3] text-[15px] duration-200 ease-in-out focus:outline-none hover:opacity-80 py-4 px-8"
+                            class="board__item active min-w-[240px] flex items-start cursor-pointer transition duration-200 ease-in-out focus:outline-none hover:opacity-80 text-[#828FA3] text-[15px]"
                     >
-                        <a class="board__link flex items-center" href="#">
+                        <button class="btn board__link w-full flex items-center gap-4 text-[#828fa3] rounded-r-full text-left font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[15px] focus:outline-none hover:bg-btn-hover-color hover:text-primary-color md:mr-6 p-[10px] md:py-4 px-6" href="#">
                             <i class="icon-layout block pr-4"></i>
                             <span class="block">Marketing Plan</span>
-                        </a>
+                        </button>
                     </li>
                 </ul>
                 <!-- ADD NEW BOARD -->
@@ -182,7 +183,7 @@
                         class="icon-eye btn rounded-r-full text-[16px] text-[#fff] hover:bg-primary-light-color cursor-pointer px-6 py-5 bg-[#635FC7] transition duration-200 ease-in-out focus:outline-none"
                 ></i>
             </div>
-            <div class="column relative h-full text-color flex flex-col w-280 gap-5">
+            <div class="column relative h-fit text-color flex flex-col w-280 gap-5">
                 <div class="status flex flex-row w-full bg-page-color items-center font-bold font-mono  text-slate-500 text-xs uppercase gap-2">
                     <div class="status__color h-4 w-4 gap-2 rounded-full bg-amber-300">
                     </div>
@@ -191,11 +192,12 @@
                 </div>
 
             </div>
-           <div
-                    id="newColumn"
+            <div
                     class="w-280 h-fit mt-9 flex rounded-md bg-gradient-primary items-center content-center overflow-visible p-5 mb-96"
+                    id="newColumn"
             >
-               <span class="text-color text-center text-slate-500 capitalize text-2xl"><span class="text-3xl text-center">+</span> New Column</span>
+                <span class="text-color text-center text-slate-500 capitalize text-2xl"><span
+                        class="text-3xl text-center">+</span> New Column</span>
             </div>
         </section>
     </main>

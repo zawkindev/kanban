@@ -1205,6 +1205,10 @@ video {
   padding-top: 0.5rem;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1567,6 +1571,10 @@ aside{
 
 .hover\:text-danger-color:hover {
   color: var(--danger-color);
+}
+
+.hover\:text-primary-color:hover {
+  color: var(--primary-color);
 }
 
 .hover\:opacity-80:hover {

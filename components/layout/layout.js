@@ -30,12 +30,12 @@ if (columns.length === 0) {
 } else {
     const data = fetchData()
     const cards = data.cards
-    cards.forEach(card=>{
+    cards.forEach(card => {
         console.log(card)
-        column.appendChild(createCardElement(card.name,0, card.subtasks.length))
+        column.appendChild(createCardElement(card.name, 0, card.subtasks.length))
     })
     const newColumn = document.querySelector('#newColumn')
-    newColumn.style.height = `${findColumnWithLargestHeight().scrollHeight-34}px`
+    newColumn.style.height = `${findColumnWithLargestHeight().scrollHeight - 34}px`
     console.log(findColumnWithLargestHeight().childNodes.length)
 
 
@@ -71,7 +71,6 @@ document.addEventListener("mousemove", (e) => {
         playGround.scrollTop = scrollTop - deltaY;
     }
 });
-
 
 
 function findColumnWithLargestHeight() {
@@ -116,3 +115,14 @@ function calculateSumOfCardHeights(column) {
     // Return the sum of heights
     return sumOfHeights;
 }
+
+const boardLinks = document.querySelectorAll(".board__link")
+const boardItems =document.querySelectorAll(".board__item")
+boardItems.forEach(boardItem => {
+    boardItem.addEventListener('click', (e) => {
+        boardLinks.forEach(board => {
+            board.classList.remove('active')
+        })
+        console.log(boardItem.querySelector('button').classList.add('active'))
+    })
+})
