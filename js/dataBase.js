@@ -66,7 +66,47 @@ const initialData = {
             name: "Molga yem berish",
             columnId: "default",
             subtasks: ["default"],
-        },
+        },{
+            id: "default",
+            name: "Molga yem berish",
+            columnId: "default",
+            subtasks: ["default"],
+        },{
+            id: "default",
+            name: "Molga yem berish",
+            columnId: "default",
+            subtasks: ["default"],
+        },{
+            id: "default",
+            name: "Molga yem berish",
+            columnId: "default",
+            subtasks: ["default"],
+        },{
+            id: "default",
+            name: "Molga yem berish",
+            columnId: "default",
+            subtasks: ["default"],
+        },{
+            id: "default",
+            name: "Molga yem berish",
+            columnId: "default",
+            subtasks: ["default"],
+        },{
+            id: "default",
+            name: "Molga yem berish",
+            columnId: "default",
+            subtasks: ["default"],
+        },{
+            id: "default",
+            name: "Molga yem berish",
+            columnId: "default",
+            subtasks: ["default"],
+        },{
+            id: "default",
+            name: "Molga yem berish",
+            columnId: "default",
+            subtasks: ["default"],
+        }
     ],
     subtasks: [
         {

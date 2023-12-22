@@ -17,8 +17,16 @@
   justify-content: safe start;
 }
 
+.column{
+  /*overflow: visible;*/
+}
+
 aside{
   max-height: calc(100vh - 6rem);
+}
+
+#newColumn{
+  overflow: visible;
 }
 
 .theme-light {

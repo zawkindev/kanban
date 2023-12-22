@@ -34,14 +34,11 @@ if (columns.length === 0) {
         console.log(card)
         column.appendChild(createCardElement(card.name,0, card.subtasks.length))
     })
+    const newColumn = document.querySelector('#newColumn')
+    newColumn.style.height = `${findColumnWithLargestHeight().scrollHeight-34}px`
+    console.log(findColumnWithLargestHeight().childNodes.length)
 
-    const div = document.createElement("div");
-    playGround.classList.remove("justify-center");
-    div.innerHTML = `<div
-      id="newColumn"
-                        class="w-280 h-[calc(100%-50px)] mt-[40px]  rounded-md bg-gradient-primary"
-    ></div>`;
-    playGround.appendChild(div);
+
 }
 
 let isDragging = false;
@@ -74,3 +71,48 @@ document.addEventListener("mousemove", (e) => {
         playGround.scrollTop = scrollTop - deltaY;
     }
 });
+
+
+
+function findColumnWithLargestHeight() {
+    // Get all elements with the class "column"
+    const columns = document.querySelectorAll('.column');
+
+    // Initialize variables to store the maximum height and corresponding element
+    let maxHeight = 0;
+    let tallestColumn = null;
+
+    // Iterate through each column
+    columns.forEach((column) => {
+        // Get the current column's height
+        const columnHeight = column.scrollHeight;
+
+        // Check if the current column is taller than the current maximum
+        if (columnHeight > maxHeight) {
+            // Update the maximum height and corresponding element
+            maxHeight = columnHeight;
+            tallestColumn = column;
+        }
+    });
+
+    // Return the element with the largest height
+    return tallestColumn;
+}
+
+
+function calculateSumOfCardHeights(column) {
+    // Get all elements with the class "card"
+    const cards = column.querySelectorAll('.card');
+
+    // Initialize variable to store the sum of heights
+    let sumOfHeights = 0;
+
+    // Iterate through each card
+    cards.forEach((card) => {
+        // Add the height of the current card to the sum
+        sumOfHeights += card.clientHeight;
+    });
+
+    // Return the sum of heights
+    return sumOfHeights;
+}

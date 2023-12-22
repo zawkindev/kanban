@@ -11,7 +11,6 @@
       <change beforePath="$PROJECT_DIR$/components/layout/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/layout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/dataBase.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dataBase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +73,7 @@
       <workItem from="1703185946147" duration="546000" />
       <workItem from="1703186495982" duration="70000" />
       <workItem from="1703198170156" duration="10439000" />
-      <workItem from="1703234935118" duration="3158000" />
+      <workItem from="1703234935118" duration="9008000" />
     </task>
     <servers />
   </component>
