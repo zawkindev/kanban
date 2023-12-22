@@ -695,16 +695,16 @@ video {
   margin-bottom: 1.25rem;
 }
 
+.mb-48 {
+  margin-bottom: 12rem;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem;
 }
 
 .mb-8 {
   margin-bottom: 2rem;
-}
-
-.mb-96 {
-  margin-bottom: 24rem;
 }
 
 .ml-10 {
@@ -1387,6 +1387,11 @@ video {
 
 .shadow-indigo-500 {
   --tw-shadow-color: #6366f1;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.shadow-sh-color {
+  --tw-shadow-color: var(--sh-color);
   --tw-shadow: var(--tw-shadow-colored);
 }
 

@@ -29,7 +29,7 @@ if (columns.length === 0) {
     playGround.append(div);
 } else {
     const data = fetchData()
-    const cards = data.cards
+    const cards = data
     cards.forEach(card => {
         console.log(card)
         column.appendChild(createCardElement(card.name, 0, card.subtasks.length))
