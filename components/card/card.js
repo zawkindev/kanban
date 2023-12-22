@@ -1,10 +1,22 @@
 let dragSrcEl;
 let dragging = false
-
 let isDragging = false;
 let startPosition = {x: 0, y: 0};
 let scrollLeft = 0;
 let scrollTop = 0;
+let last = document.querySelectorAll('.dragover')[0]
+let draggingColumn;
+
+
+function isBefore(el1, el2) {
+    let cur
+    if (el2.parentNode === el1.parentNode) {
+        for (cur = el1.previousSibling; cur; cur = cur.previousSibling) {
+            if (cur === el2) return true
+        }
+    }
+    return false;
+}
 
 makeMouseScrollable(playGround)
 while (dragging) {
@@ -32,10 +44,14 @@ function drag() {
 
 function dragStart(e) {
     dragging = true
-    dragSrcEl = this;
+    e.dataTransfer.dropEffect = "move";
+    e.dataTransfer.setData('text/plain', null)
+    dragSrcEl = e.target;
     dragSrcEl.opacity = 0.5;
     // dragSrcEl.classList.add('dragover')
-    e.dataTransfer.setData("text/html", this.innerHTML);
+    // e.dataTransfer.setData("text/html", this.innerHTML);
+    e.dataTransfer.setData("taskId", this.id);
+    e.dataTransfer.setData("classList", this.classList);
 
     isDragging = false
     startPosition = {x: 0, y: 0};
@@ -45,24 +61,47 @@ function dragStart(e) {
     return false;
 }
 
+function dragEnter(e) {
+}
+
 function dragOver(e) {
-    dragging = true
+    dragging = true;
+    draggingColumn = this.closest(".column");
     e.preventDefault();
     e.dataTransfer.dropEffect = "move";
-    this.classList.add("dragover");
+    last = document.querySelectorAll('.dragover')[0];
 
-    isDragging = false
+    if (last === undefined) {
+        this.classList.add("dragover");
+    } else {
+        last.classList.remove("dragover");
+        this.classList.add("dragover");
+        last = this;
+    }
+
+    if (dragSrcEl !== this && !this.contains(dragSrcEl)) {
+
+        if (isBefore(dragSrcEl, this)) {
+            draggingColumn.insertBefore(dragSrcEl, this);
+        } else {
+            draggingColumn.insertBefore(dragSrcEl, this.nextElementSibling);
+        }
+    }
+
+    isDragging = false;
     startPosition = {x: 0, y: 0};
     scrollLeft = 0;
     scrollTop = 0;
-    stopMouseScrolling(playGround)
+    stopMouseScrolling(playGround);
     return false;
 }
 
 function dragLeave(e) {
     dragging = true
     e.preventDefault();
-    this.classList.remove("dragover");
+    if (this.classList.contains('dragover') && this !== last) {
+        this.classList.remove('dragover')
+    }
 
     isDragging = false
     startPosition = {x: 0, y: 0};
@@ -73,24 +112,13 @@ function dragLeave(e) {
 }
 
 function dragDrop(e) {
-    if (dragSrcEl != this) {
-        dragSrcEl.innerHTML = this.innerHTML;
-        this.innerHTML = e.dataTransfer.getData("text/html");
-    }
-
-    this.classList.remove("dragover");
-
+    this.classList.remove("dragover")
     dragging = false
     makeMouseScrollable(playGround)
     return false;
 }
 
 function dragEnd() {
-    const listItems = document.querySelectorAll(".gallery__item");
-    [].forEach.call(listItems, function (item) {
-        item.draggable = "true";
-    });
-
     isDragging = false
     startPosition = {x: 0, y: 0};
     scrollLeft = 0;
@@ -102,7 +130,6 @@ function dragEnd() {
 
 function mouseDown() {
     dragging = true
-
     isDragging = false
     startPosition = {x: 0, y: 0};
     scrollLeft = 0;
@@ -121,16 +148,34 @@ function mouseUp() {
     return false
 }
 
+function dragLeaveColumn(e) {
+    dragSrcEl.classList.add("cardAnime")
+    return false
+}
+
+function dragOverColumn(e) {
+    if (!this.querySelector('.card')) {
+        this.appendChild(dragSrcEl)
+    }
+    return false
+}
+
 function addEventsDragAndDrop(el) {
     el.addEventListener("dragstart", dragStart, false);
     el.addEventListener("dragover", dragOver, false);
     el.addEventListener("dragleave", dragLeave, false);
+    el.addEventListener("dragenter", dragEnter, false);
     el.addEventListener("drop", dragDrop, false);
     el.addEventListener("dragend", dragEnd, false);
     el.addEventListener("mousedown", mouseDown, false)
     el.addEventListener("mouseup", mouseUp, false)
 }
 
+const columnss = document.querySelectorAll(".column")
+columnss.forEach(col => {
+    col.addEventListener("dragover", dragOverColumn, false)
+    col.addEventListener("dragleave", dragLeaveColumn, false)
+})
 // make images Draggable <END>
 
 const cards = document.querySelectorAll(".card");
@@ -138,9 +183,6 @@ cards.forEach((card) => {
     card.draggable = true;
     addEventsDragAndDrop(card);
 });
-
-
-
 
 
 function makeMouseScrollable(el) {

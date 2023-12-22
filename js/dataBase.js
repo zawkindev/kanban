@@ -45,11 +45,26 @@ const initialData = {
                             ]
                         }
                     ]
-                },
-                {
+                },{
                     id: "column-12",
                     name: 'Enchanted Column',
-                 cards: []
+                    cards: [
+                        // Cards for Enchanted Column
+                        {
+                            id: "card-121",
+                            title: 'Enchanted Card 4',
+                            tasks: [
+                                { id: "task-1211", title: 'Magical Task', completed: false }
+                            ]
+                        },
+                        {
+                            id: "card-122",
+                            title: 'Whimsical Card 3',
+                            tasks: [
+                                { id: "task-1221", title: 'Fantasy Task', completed: true }
+                            ]
+                        }
+                    ]
                 },
                 {
                     id: "column-12",

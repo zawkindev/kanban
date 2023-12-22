@@ -6,22 +6,23 @@ const column = document.querySelectorAll(".column")[0];
 const defaultBoard = fetchData().selectedBoard
 const defaultColumn = fetchData().selectedColumn
 
-function createCardElement(title, taskCount, total) {
+function createCardElement(taskId,title, taskCount, total) {
     const div = document.createElement('div')
-    div.setAttribute("class", "card duration-200 bg-content-color w-280 h-fit py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased")
+    div.setAttribute("class", "card  bg-content-color w-280 h-fit py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer hover:text-primary-color subpixel-antialiased")
+    div.setAttribute("id", taskId)
     div.innerHTML =
             `
             <p class="card__title text-color capitalize">
                 ${title}
             </p>
-            <p class="card__status text-slate-500">${taskCount} of ${total} subtasks</p>
+            <span class="card__status text-slate-500">${taskCount} of ${total} subtasks</span>
             `
     return div;
 }
 
 function createColumnElement(id, name, taskCount, color) {
     const div = document.createElement('div')
-    div.setAttribute("class", "column relative h-fit text-color flex flex-col w-280 gap-5")
+    div.setAttribute("class", "column relative h-fit h-min-[60px] text-color flex flex-col w-280 gap-5")
     div.setAttribute("id", id)
     div.innerHTML =
                 `
@@ -37,7 +38,7 @@ function createColumnElement(id, name, taskCount, color) {
 
 function renderCards(where, whatList) {
     whatList.forEach(card => {
-        const cardElement = createCardElement(card.title, 0, card.tasks.length);
+        const cardElement = createCardElement(card.id,card.title, 0, card.tasks.length);
         where.appendChild(cardElement);
     });
 }
@@ -93,7 +94,6 @@ function findColumnWithLargestHeight() {
     // Iterate through each column
     columns.forEach((column) => {
         // Get the current column's height
-        stopMouseScrolling(column)
         const columnHeight = column.scrollHeight;
 
         // Check if the current column is taller than the current maximum
