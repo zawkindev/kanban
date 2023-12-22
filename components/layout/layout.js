@@ -109,6 +109,22 @@ function findColumnWithLargestHeight() {
 }
 
 
+function getColumnWithMostChildNodes(columns) {
+    let maxColumn;
+    let maxChildNodes = 0;
+
+    columns.forEach(column => {
+        const numberOfChildNodes = column.querySelectorAll(".card").length;
+        if (numberOfChildNodes > maxChildNodes) {
+            maxChildNodes = numberOfChildNodes;
+            maxColumn = column;
+        }
+    });
+    console.log(maxColumn)
+    return maxColumn;
+}
+
+
 function calculateSumOfCardHeights(column) {
     // Get all elements with the class "card"
     const cards = column.querySelectorAll('.card');

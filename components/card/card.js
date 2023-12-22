@@ -31,7 +31,6 @@ playGround.effectAllowed = "move"
 
 function drag() {
     dragging = true;
-
     isDragging = false
     startPosition = {x: 0, y: 0};
     scrollLeft = 0;
@@ -119,6 +118,7 @@ function dragDrop(e) {
 }
 
 function dragEnd() {
+    this.classList.remove("dragover")
     isDragging = false
     startPosition = {x: 0, y: 0};
     scrollLeft = 0;
@@ -128,7 +128,8 @@ function dragEnd() {
     return false;
 }
 
-function mouseDown() {
+function mouseDown(e) {
+this.classList.add("dragover")
     dragging = true
     isDragging = false
     startPosition = {x: 0, y: 0};
@@ -139,7 +140,7 @@ function mouseDown() {
 }
 
 function mouseUp() {
-
+this.classList.remove('dragover')
     isDragging = false
     startPosition = {x: 0, y: 0};
     scrollLeft = 0;
@@ -149,14 +150,19 @@ function mouseUp() {
 }
 
 function dragLeaveColumn(e) {
-    dragSrcEl.classList.add("cardAnime")
     return false
 }
 
 function dragOverColumn(e) {
-    if (!this.querySelector('.card')) {
         this.appendChild(dragSrcEl)
-    }
+    const newColumn = document.querySelector('#newColumn')
+    const columnsss = document.querySelectorAll(".column")
+    const theColumn = getColumnWithMostChildNodes(columnsss).querySelectorAll(".card").length
+    console.log(theColumn)
+    newColumn.style.height = `${theColumn * 101}px`
+    columnsss.forEach(col=>{
+        col.style.height = `${findColumnWithLargestHeight().scrollHeight }px`
+    })
     return false
 }
 

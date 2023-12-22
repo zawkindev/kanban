@@ -1465,6 +1465,7 @@ video {
   overflow: visible;
   min-width: 280px;
   min-height: 100px;
+  align-content: start;
 }
 
 aside{
@@ -1488,9 +1489,6 @@ aside{
   border: 2px solid #635fc7;
   opacity: 50%;
   animation: zoomInZoomOut .3s;
-}
-
-.cardAnime{
 }
 
 @keyframes zoomInZoomOut {
