@@ -816,6 +816,11 @@ video {
   width: 1rem;
 }
 
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .w-full {
   width: 100%;
 }
@@ -941,6 +946,14 @@ video {
 
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.overflow-x-scroll {
+  overflow-x: scroll;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 
 .rounded {
@@ -1453,10 +1466,12 @@ video {
 
 #playGround{
   justify-content: safe start;
+  overflow-y: scroll;
 }
 
 .column{
-  /*overflow: visible;*/
+  overflow: visible;
+  min-width: 280px;
 }
 
 aside{

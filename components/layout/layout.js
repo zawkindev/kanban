@@ -1,17 +1,59 @@
 const playGround = document.querySelector("#playGround");
 const addColumnBtn = document.querySelector("#addColumn");
+const columnsElement = document.querySelector("#columns")
 const columns = document.querySelectorAll(".column");
 const column = document.querySelectorAll(".column")[0];
+const defaultBoard = fetchData().selectedBoard
+const defaultColumn = fetchData().selectedColumn
 
-function createCardElement(title, subtaskCount, total) {
+function createCardElement(title, taskCount, total) {
     const div = document.createElement('div')
     div.setAttribute("class", "card duration-200 bg-content-color w-280 h-fit py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased")
-    div.innerHTML = `<p class="card__title text-color capitalize">
+    div.innerHTML =
+            `
+            <p class="card__title text-color capitalize">
                 ${title}
             </p>
-            <p class="card__status text-slate-500">${subtaskCount} of ${total} subtasks</p>`
+            <p class="card__status text-slate-500">${taskCount} of ${total} subtasks</p>
+            `
     return div;
 }
+
+function createColumnElement(id, name, taskCount, color) {
+    const div = document.createElement('div')
+    div.setAttribute("class", "column relative h-fit text-color flex flex-col w-280 gap-5")
+    div.setAttribute("id", id)
+    div.innerHTML =
+                `
+                <div class="status flex flex-row w-full bg-page-color items-center font-bold font-mono  ${color} text-xs uppercase gap-2">
+                    <div class="status__color h-4 w-4 gap-2 rounded-full bg-amber-300">
+                    </div>
+                    <span class="inline-block">${name}</span>
+                    <span class="inline-block">(${taskCount})</span>
+                </div>    
+                `
+    return div
+}
+
+function renderCards(where, whatList) {
+    whatList.forEach(card => {
+        const cardElement = createCardElement(card.title, 0, card.tasks.length);
+        where.appendChild(cardElement);
+    });
+}
+
+function renderColumns(where, whatList, newColumnElement) {
+    whatList.forEach(column => {
+        const columnElement = createColumnElement(column.id,column.name,column.cards.length,"text-slate-500");
+        where.insertBefore(columnElement,newColumnElement);
+        renderCards(document.querySelector(`#${column.id}`),column.cards)
+    });
+}
+
+function renderBoard(){
+
+}
+
 
 if (columns.length === 0) {
     const div = document.createElement("div");
@@ -27,18 +69,17 @@ if (columns.length === 0) {
       </div>`;
     playGround.classList.add("justify-center");
     playGround.append(div);
+    makeMouseScrollable(playGround)
 } else {
-    const data = fetchData()
-    const cards = data
-    cards.forEach(card => {
-        console.log(card)
-        column.appendChild(createCardElement(card.name, 0, card.subtasks.length))
-    })
+
+    renderColumns(playGround,getBoardById(defaultBoard,fetchData()).columns,document.querySelector("#newColumn"))
+
+    // Render cards
+    // const cards = getColumnById(1, 11, fetchData()).cards
+
+    // FIX newColumn size
     const newColumn = document.querySelector('#newColumn')
     newColumn.style.height = `${findColumnWithLargestHeight().scrollHeight - 34}px`
-    console.log(findColumnWithLargestHeight().childNodes.length)
-
-
 }
 
 let isDragging = false;
@@ -76,7 +117,7 @@ function makeMouseScrollable(el) {
 }
 
 function stopMouseScrolling(el) {
-    el.removeEventListener('mousedown', (e) => {
+    el.removeEventListener("mousedown", (e) => {
         isDragging = true;
         startPosition = {
             x: e.clientX,
@@ -85,7 +126,7 @@ function stopMouseScrolling(el) {
         scrollLeft = playGround.scrollLeft;
         scrollTop = playGround.scrollTop;
 
-    })
+    });
     el.removeEventListener("mouseup", () => {
         if (isDragging) {
             isDragging = false;
@@ -100,7 +141,7 @@ function stopMouseScrolling(el) {
             playGround.scrollLeft = scrollLeft - deltaX;
             playGround.scrollTop = scrollTop - deltaY;
         }
-    })
+    });
 }
 
 function findColumnWithLargestHeight() {

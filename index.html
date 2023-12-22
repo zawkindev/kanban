@@ -173,7 +173,7 @@
         </aside>
         <!-- LAYOUT -->
         <section
-                class="w-full h-full flex flex-row z-auto  flex-1 border-t-2 border-lines-color overflow-scroll gap-8 p-8 pl-24 "
+                class="w-full h-full flex flex-row z-auto  flex-1 border-t-2 border-lines-color overflow-x-scroll gap-8 p-8 pl-24 "
                 id="playGround"
         ><!-- SIDEBAR REVEALER -->
             <div
@@ -183,28 +183,31 @@
                         class="icon-eye btn rounded-r-full text-[16px] text-[#fff] hover:bg-primary-light-color cursor-pointer px-6 py-5 bg-[#635FC7] transition duration-200 ease-in-out focus:outline-none"
                 ></i>
             </div>
-            <div class="column relative h-fit text-color flex flex-col w-280 gap-5">
-                <div class="status flex flex-row w-full bg-page-color items-center font-bold font-mono  text-slate-500 text-xs uppercase gap-2">
-                    <div class="status__color h-4 w-4 gap-2 rounded-full bg-amber-300">
+<!--            <div id="columns" class="w-fit h-fit flex flex-row gap-8 ">-->
+                <div class="column relative h-fit text-color flex flex-col w-280 gap-5 overflow-visible">
+                    <div class="status flex flex-row w-full bg-page-color items-center font-bold font-mono  text-slate-500 text-xs uppercase gap-2">
+                        <div class="status__color h-4 w-4 gap-2 rounded-full bg-amber-300">
+                        </div>
+                        <span class="inline-block">Doing</span>
+                        <span class="inline-block">(23)</span>
                     </div>
-                    <span class="inline-block">Doing</span>
-                    <span class="inline-block">(23)</span>
-                </div>
 
-                <div class="card duration-200 bg-content-color w-280 h-fit py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased">
-                    <p class="card__title text-color capitalize">
-                    Tovuqqa don solish
-                    </p>
-                    <p class="card__status text-slate-500">1 of 5 subtasks</p>
+                    <div class="card duration-200 bg-content-color w-280 h-fit py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased">
+                        <p class="card__title text-color capitalize">
+                            Tovuqqa don solish
+                        </p>
+                        <p class="card__status text-slate-500">1 of 5 subtasks</p>
+                    </div>
                 </div>
-            </div>
-            <div
-                    class="w-280 h-fit mt-9 flex rounded-md bg-gradient-primary items-center content-center overflow-visible p-5 mb-48"
-                    id="newColumn"
-            >
+                <div
+                        class="w-280 h-fit mt-9 flex rounded-md bg-gradient-primary items-center content-center overflow-visible p-5 mb-48"
+                        id="newColumn"
+                >
                 <span class="text-color text-center text-slate-500 capitalize text-2xl"><span
                         class="text-3xl text-center">+</span> New Column</span>
-            </div>
+                </div>
+<!--            </div>-->
+
         </section>
     </main>
 </div>

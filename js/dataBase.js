@@ -1,30 +1,196 @@
 const initialData = {
-    boards: [{
-        id: 1, name: 'Platform', columns: [{
-            id: 11, name: 'Column 1', cards: [{
-                id: 111, title: 'Card 1', tasks: [{
-                    id: 1111, title: 'task 1', completed: false
-                }, {
-                    id: 1112, title: 'task 2', completed: true
-                }]
-            }, {
-                id: 112, title: 'Card 2', tasks: [{
-                    id: 1121, title: 'task 1', completed: false
-                }]
-            }]
-        }, {
-            id: 12, name: 'Column 2', cards: [// Cards for Column 2
+    boards: [
+        {
+            id: "board-1",
+            name: 'Wonderland',
+            columns: [
+                {
+                    id: "column-11",
+                    name: 'Magical Column',
+                    cards: [
+                        {
+                            id: "card-111",
+                            title: 'Enchanted Card 1',
+                            tasks: [
+                                { id: "task-1111", title: 'Spellbinding Task', completed: false },
+                                { id: "task-1112", title: 'Mystical Task', completed: true }
+                            ]
+                        },
+                        {
+                            id: "card-112",
+                            title: 'Whimsical Card 1',
+                            tasks: [
+                                { id: "task-1121", title: 'Fantasy Task', completed: false }
+                            ]
+                        },
+                        {
+                            id: "card-113",
+                            title: 'Enchanted Card 2',
+                            tasks: [
+                                { id: "task-1131", title: 'Enchanting Task', completed: true }
+                            ]
+                        },
+                        {
+                            id: "card-114",
+                            title: 'Whimsical Card 2',
+                            tasks: [
+                                { id: "task-1141", title: 'Magical Task', completed: false }
+                            ]
+                        },
+                        {
+                            id: "card-115",
+                            title: 'Enchanted Card 3',
+                            tasks: [
+                                { id: "task-1151", title: 'Wonderful Task', completed: true }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: "column-12",
+                    name: 'Enchanted Column',
+                 cards: []
+                },
+                {
+                    id: "column-12",
+                    name: 'Enchanted Column',
+                    cards: [
+                        // Cards for Enchanted Column
+                        {
+                            id: "card-121",
+                            title: 'Enchanted Card 4',
+                            tasks: [
+                                { id: "task-1211", title: 'Magical Task', completed: false }
+                            ]
+                        },
+                        {
+                            id: "card-122",
+                            title: 'Whimsical Card 3',
+                            tasks: [
+                                { id: "task-1221", title: 'Fantasy Task', completed: true }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: "column-13",
+                    name: 'Mystical Column',
+                    cards: [
+                        // Cards for Mystical Column
+                        {
+                            id: "card-131",
+                            title: 'Enchanted Card 5',
+                            tasks: [
+                                { id: "task-1311", title: 'Enchanting Task', completed: false }
+                            ]
+                        },
+                        {
+                            id: "card-132",
+                            title: 'Whimsical Card 4',
+                            tasks: [
+                                { id: "task-1321", title: 'Magical Task', completed: true }
+                            ]
+                        },
+                        {
+                            id: "card-133",
+                            title: 'Enchanted Card 6',
+                            tasks: [
+                                { id: "task-1331", title: 'Wonderful Task', completed: false }
+                            ]
+                        }
+                    ]
+                }
             ]
-        }]
-    }, {
-        id: 2, name: 'Board 2', columns: [// Columns for Board 2
-        ]
-    }],
-    selectedBoard:1,
-    selectedColumn:11,
-    selectedCard:null,
-    selectedTask:null,
-}
+        },
+        {
+            id: "board-2",
+            name: 'Adventure Board',
+            columns: [
+                {
+                    id: "column-21",
+                    name: 'Quest Column',
+                    cards: [
+                        // Cards for Quest Column
+                        {
+                            id: "card-211",
+                            title: 'Adventure Card 1',
+                            tasks: [
+                                { id: "task-2111", title: 'Quest Task', completed: true }
+                            ]
+                        },
+                        {
+                            id: "card-212",
+                            title: 'Journey Card 1',
+                            tasks: [
+                                { id: "task-2121", title: 'Exploration Task', completed: false }
+                            ]
+                        },
+                        {
+                            id: "card-213",
+                            title: 'Adventure Card 2',
+                            tasks: [
+                                { id: "task-2131", title: 'Challenging Task', completed: true }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: "column-22",
+                    name: 'Exploration Column',
+                    cards: [
+                        // Cards for Exploration Column
+                        {
+                            id: "card-221",
+                            title: 'Journey Card 2',
+                            tasks: [
+                                { id: "task-2211", title: 'Discovery Task', completed: false }
+                            ]
+                        },
+                        {
+                            id: "card-222",
+                            title: 'Adventure Card 3',
+                            tasks: [
+                                { id: "task-2221", title: 'Exciting Task', completed: true }
+                            ]
+                        },
+                        {
+                            id: "card-223",
+                            title: 'Exploration Card 1',
+                            tasks: [
+                                { id: "task-2231", title: 'Uncharted Task', completed: false }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: "column-23",
+                    name: 'Challenges Column',
+                    cards: [
+                        // Cards for Challenges Column
+                        {
+                            id: "card-231",
+                            title: 'Adventure Card 4',
+                            tasks: [
+                                { id: "task-2311", title: 'Daring Task', completed: true }
+                            ]
+                        },
+                        {
+                            id: "card-232",
+                            title: 'Journey Card 3',
+                            tasks: [
+                                { id: "task-2321", title: 'Challenge Task', completed: false }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    selectedBoard: "board-1",
+    selectedColumn: "column-11",
+    selectedCard: null,
+    selectedTask: null,
+};
 localStorage.setItem("taskManagement", JSON.stringify(initialData))
 const database = JSON.parse(localStorage.getItem("taskManagement")) || {};
 
@@ -45,7 +211,6 @@ function generateUniqueId() {
 
 //      GETTER
 
-// Function to add a new board
 function getBoardById(boardId, data) {
     const board = data.boards.find(board => board.id === boardId);
     return board || null; // Return the board if found, otherwise null
@@ -110,7 +275,6 @@ function getTaskById(boardId, columnId, cardId, taskId, data) {
 
 
 //    SETTER
-
 
 function addBoard(newBoard, data) {
     // Add the new board to the list of boards

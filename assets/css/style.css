@@ -15,10 +15,12 @@
 
 #playGround{
   justify-content: safe start;
+  overflow-y: scroll;
 }
 
 .column{
-  /*overflow: visible;*/
+  overflow: visible;
+  min-width: 280px;
 }
 
 aside{
