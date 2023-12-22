@@ -39,7 +39,7 @@ if (columns.length === 0) {
     playGround.classList.remove("justify-center");
     div.innerHTML = `<div
       id="newColumn"
-      class="w-280 h-full  rounded-md bg-gradient-to-br from-slate-300 to-slate-200 "
+                        class="w-280 h-[calc(100%-50px)] mt-[40px]  rounded-md bg-gradient-primary"
     ></div>`;
     playGround.appendChild(div);
 }

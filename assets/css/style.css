@@ -12,13 +12,21 @@
   font-size: 14px;
   font-weight: 700;
 }
-body.active {
-  overflow-y: hidden;
+
+#playGround{
+  justify-content: safe start;
 }
+
+aside{
+  max-height: calc(100vh - 6rem);
+}
+
 .theme-light {
   --bg-page-color: #f4f7fd;
   --bg-content-color: #fff;
   --sh-color: #828fa3;
+  --gradient-f: #e4f7fd;
+  --gradient-t: #e0ebfa;
   --text-color: #000112;
   --lines-color: #e4ebfa;
   --gray-color: #828fa3;
@@ -29,6 +37,8 @@ body.active {
   --bg-page-color: #20212c;
   --bg-content-color: #2b2c37;
   --sh-color: #3e3f4e;
+  --gradient-f: #3e3f4e;
+  --gradient-t: #2b2c37;
   --text-color: #fff;
   --lines-color: #3e3f4e;
   --gray-color: #fff;

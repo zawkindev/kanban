@@ -21,14 +21,14 @@
 >
 <div class="flex flex-col h-full w-full">
     <!-- HEADER -->
-    <header class="flex items-center w-full px-6 z-10 bg-content-color h-28 w-full">
+    <header class="flex items-center px-6 z-10 bg-content-color h-28 w-full">
         <!-- HEADER LOGO -->
         <div
                 class="h-full min-w-[279px] flex text-black font-bold md:border-r-2 border-lines-color transition duration-200 ease-in-out focus:outline-none hover:opacity-80"
         >
             <a
                     class="header-logo cursor-pointer md:flex flex items-center justify-center gap-4"
-                    href="layout.html"
+                    href="index.html"
             >
                 <svg
                         class=""
@@ -106,7 +106,7 @@
         <div class="blocker"></div>
         <!-- SIDEBAR -->
         <aside
-                class="sidebar pr-6 min-w-[300px] hidden md:border-r-2  border-lines-color z-50 md:h-full md:flex md:flex-col justify-between md:items-center transition duration-200 ease-in-out bg-content-color"
+                class="sidebar pr-6 min-w-[300px] md:border-r-2  border-lines-color md:h-full md:flex md:flex-col justify-between md:items-center transition duration-200 ease-in-out bg-content-color"
         >
             <!-- LOGO -->
             <!-- class=" ml-8 mr-4 " -->
@@ -166,18 +166,17 @@
                 <button
                         class="btn sidebar-hider rounded-full w-full mt-2 mb-8 text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none hover:bg-btn-light-color text-primary-color"
                 >
-                    <i class="icon-eye-close text-primary-color font-bold"></i>
-                    Hide Sidebar
+                    <i class="icon-eye-close text-primary-color font-bold"></i> Hide Sidebar
                 </button>
             </div>
         </aside>
         <!-- LAYOUT -->
         <section
-                class=" w-full h-fit flex flex-row flex-1 border-t-2 border-lines-color overflow-auto gap-8 p-8"
+                class="w-full h-full flex flex-row z-auto  flex-1 border-t-2 border-lines-color overflow-scroll gap-8 p-8 pl-24 "
                 id="playGround"
         ><!-- SIDEBAR REVEALER -->
             <div
-                    class="absolute sidebar-revealer hidden md:block left-0 bottom-10 py-5"
+                    class="absolute sidebar-revealer hidden md:block left-0 bottom-32 py-5 z-50"
             >
                 <i
                         class="icon-eye btn rounded-r-full text-[16px] text-[#fff] hover:bg-primary-light-color cursor-pointer px-6 py-5 bg-[#635FC7] transition duration-200 ease-in-out focus:outline-none"
@@ -190,7 +189,10 @@
                     <span class="inline-block">Doing</span>
                     <span class="inline-block">(23)</span>
                 </div>
-
+<!--                <div-->
+<!--                        id="newColumn"-->
+<!--                        class="w-280 h-[calc(100%-40px)]  rounded-md bg-gradient-primary"-->
+<!--                ></div>-->
             </div>
 
         </section>
