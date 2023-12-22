@@ -82,68 +82,6 @@ if (columns.length === 0) {
     newColumn.style.height = `${findColumnWithLargestHeight().scrollHeight - 34}px`
 }
 
-let isDragging = false;
-let startPosition = {x: 0, y: 0};
-let scrollLeft = 0;
-let scrollTop = 0;
-
-
-function makeMouseScrollable(el) {
-    el.addEventListener("mousedown", (e) => {
-        isDragging = true;
-        startPosition = {
-            x: e.clientX,
-            y: e.clientY,
-        };
-        scrollLeft = playGround.scrollLeft;
-        scrollTop = playGround.scrollTop;
-
-    });
-    el.addEventListener("mouseup", () => {
-        if (isDragging) {
-            isDragging = false;
-        }
-    });
-
-    el.addEventListener("mousemove", (e) => {
-        if (isDragging) {
-            const deltaX = e.clientX - startPosition.x;
-            const deltaY = e.clientY - startPosition.y;
-
-            playGround.scrollLeft = scrollLeft - deltaX;
-            playGround.scrollTop = scrollTop - deltaY;
-        }
-    });
-}
-
-function stopMouseScrolling(el) {
-    el.removeEventListener("mousedown", (e) => {
-        isDragging = true;
-        startPosition = {
-            x: e.clientX,
-            y: e.clientY,
-        };
-        scrollLeft = playGround.scrollLeft;
-        scrollTop = playGround.scrollTop;
-
-    });
-    el.removeEventListener("mouseup", () => {
-        if (isDragging) {
-            isDragging = false;
-        }
-    });
-
-    el.removeEventListener("mousemove", (e) => {
-        if (isDragging) {
-            const deltaX = e.clientX - startPosition.x;
-            const deltaY = e.clientY - startPosition.y;
-
-            playGround.scrollLeft = scrollLeft - deltaX;
-            playGround.scrollTop = scrollTop - deltaY;
-        }
-    });
-}
-
 function findColumnWithLargestHeight() {
     // Get all elements with the class "column"
     const columns = document.querySelectorAll('.column');
