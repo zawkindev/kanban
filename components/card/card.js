@@ -60,4 +60,3 @@ cards.forEach((card) => {
   card.draggable = true;
   addEventsDragAndDrop(card);
 });
-console.log(cards);

@@ -11,10 +11,8 @@ buttons.forEach((button) => {
   });
   modalInputs.forEach((modalInput) => {
     if (modalInput.value.trim() === "") {
-      console.log("asf");
       modalInput.classList.add("focus:border-danger-color");
     } else {
-      console.log("asf");
       modalInput.classList.remove("focus:border-danger-color");
     }
   });

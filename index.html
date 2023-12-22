@@ -1,267 +1,210 @@
 <!doctype html>
-<html class="w-full h-full dark" lang="en" xmlns="http://www.w3.org/1999/html">
-  <head>
-    <meta charset="UTF-8" />
-    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<html class="w-full h-full bg-page-color dark" lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Document</title>
-    <link href="/assets/css/variables.css" rel="stylesheet" />
-    <link href="/components/button/button.css" rel="stylesheet" />
-    <link href="./assets/css/style.css" rel="stylesheet" />
-    <link href="/assets/css/output.css" rel="stylesheet" />
-    <link href="/components/layout/layout.css" rel="stylesheet" />
-    <link href="/components/card/card.css" rel="stylesheet" />
+    <link href="/assets/css/variables.css" rel="stylesheet"/>
+    <link href="/components/button/button.css" rel="stylesheet"/>
+    <link href="./assets/css/style.css" rel="stylesheet"/>
+    <link href="/assets/css/output.css" rel="stylesheet"/>
+    <link href="/components/layout/layout.css" rel="stylesheet"/>
+    <link href="/components/card/card.css" rel="stylesheet"/>
     <!-- <link
            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
            rel="stylesheet" /> -->
-  </head>
+</head>
 
-  <body
-    class="w-full h-screen font-plus-jakarta-sans flex flex-col overflow-hidden"
-  >
-    <div class="flex flex-col h-full w-full">
-      <!-- HEADER -->
-      <header class="flex items-center w-full px-6 z-10 bg-content-color h-20">
+<body
+        class="w-full h-screen font-plus-jakarta-sans flex flex-col overflow-hidden"
+>
+<div class="flex flex-col h-full w-full">
+    <!-- HEADER -->
+    <header class="flex items-center w-full px-6 z-10 bg-content-color h-28 w-full">
         <!-- HEADER LOGO -->
         <div
-          class="h-full flex text-black font-bold md:border-r-2 border-lines-color transition duration-200 ease-in-out focus:outline-none hover:opacity-80"
+                class="h-full min-w-[279px] flex text-black font-bold md:border-r-2 border-lines-color transition duration-200 ease-in-out focus:outline-none hover:opacity-80"
         >
-          <a
-            class="header-logo md:min-w-[274px] cursor-pointer md:flex flex items-center justify-center gap-4"
-            href="layout.html"
-          >
-            <svg
-              class=""
-              fill="none"
-              height="25"
-              viewBox="0 0 24 25"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <a
+                    class="header-logo cursor-pointer md:flex flex items-center justify-center gap-4"
+                    href="layout.html"
             >
-              <rect fill="#635FC7" height="25" rx="2" width="6" />
-              <rect
-                fill="#635FC7"
-                height="25"
-                opacity="0.75"
-                rx="2"
-                width="6"
-                x="9"
-              />
-              <rect
-                fill="#635FC7"
-                height="25"
-                opacity="0.5"
-                rx="2"
-                width="6"
-                x="18"
-              />
-            </svg>
-            <span class="hidden text-2xl md:block text-color">Kanban</span>
-          </a>
+                <svg
+                        class=""
+                        fill="none"
+                        height="25"
+                        viewBox="0 0 24 25"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                    <rect fill="#635FC7" height="25" rx="2" width="6"/>
+                    <rect
+                            fill="#635FC7"
+                            height="25"
+                            opacity="0.75"
+                            rx="2"
+                            width="6"
+                            x="9"
+                    />
+                    <rect
+                            fill="#635FC7"
+                            height="25"
+                            opacity="0.5"
+                            rx="2"
+                            width="6"
+                            x="18"
+                    />
+                </svg>
+                <span class="hidden text-2xl md:block text-color">Kanban</span>
+            </a>
         </div>
         <div
-          class="flex w-full justify-between items-center pl-4 py-5 md:py-5 md:pl-8"
+                class="flex w-full justify-between items-center pl-4 py-5 md:py-5 md:pl-8"
         >
-          <div
-            class="flex place-items-center gap-2 cursor-pointer transition duration-200 ease-in-out focus:outline-none hover:opacity-80"
-          >
-            <!-- Name of current Board -->
-            <span
-              class="currentBoard text-color text-[18px] md:text-[20px] lg:text-[24px] font-bold"
-              >Platform Launch</span
+            <div
+                    class="flex place-items-center gap-2 cursor-pointer transition duration-200 ease-in-out focus:outline-none hover:opacity-80"
             >
-            <!-- SIDEBAR OPENER ICON -->
-            <span class="">
+                <!-- Name of current Board -->
+                <span
+                        class="currentBoard text-color text-[18px] md:text-[20px] lg:text-[24px] font-bold"
+                >Platform Launch</span
+                >
+                <!-- SIDEBAR OPENER ICON -->
+                <span class="">
               <svg
-                class="sidebarOpenerIcon rotate-90 inline-block w-full transition cursor-pointer duration-200 ease-in-out md:hidden hover:scale-150"
-                fill="none"
-                height="7"
-                viewBox="0 0 7 9"
-                width="9"
-                xmlns="http://www.w3.org/2000/svg"
+                      class="sidebarOpenerIcon rotate-90 inline-block w-full transition cursor-pointer duration-200 ease-in-out md:hidden hover:scale-150"
+                      fill="none"
+                      height="7"
+                      viewBox="0 0 7 9"
+                      width="9"
+                      xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M1 1L5 5L9 1" stroke="#635FC7" stroke-width="2" />
+                <path d="M1 1L5 5L9 1" stroke="#635FC7" stroke-width="2"/>
               </svg>
             </span>
-          </div>
+            </div>
 
-          <div class="flex items-center gap-4 md:gap-6">
-            <!-- ADD NEW TASK BUTTON -->
-            <button
-              class="btn w-full rounded-full text-center font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[15px] focus:outline-none hover:bg-primary-light-color bg-primary-color text-white md:mr-6 p-[10px] md:py-4 px-6"
-              role="button"
-            >
-              +
-              <span class="hidden md:inline-block">Add New Task</span>
-            </button>
-            <!-- TRIPLE DOTS -->
+            <div class="flex items-center gap-4 md:gap-6">
+                <!-- ADD NEW TASK BUTTON -->
+                <button
+                        class="btn w-full rounded-full text-center font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[15px] focus:outline-none hover:bg-primary-light-color bg-primary-color text-white md:mr-6 p-[10px] md:py-4 px-6"
+                        role="button"
+                >
+                    +
+                    <span class="hidden md:inline-block">Add New Task</span>
+                </button>
+                <!-- TRIPLE DOTS -->
 
-            <i class="icon-menu cursor-pointer text-color"></i>
-          </div>
+                <i class="icon-menu cursor-pointer text-color"></i>
+            </div>
         </div>
-      </header>
+    </header>
 
-      <!-- MAIN -->
-      <main class="relative flex flex-1 w-full h-full">
+    <!-- MAIN -->
+    <main class="relative flex flex-1 w-full h-full">
         <div class="blocker"></div>
         <!-- SIDEBAR -->
         <aside
-          class="sidebar pr-6 min-w-[300px] hidden md:border-r-2 shadow-md shadow-indigo-500 border-lines-color z-50 md:h-full md:flex md:flex-col justify-between md:items-center transition duration-200 ease-in-out bg-content-color"
+                class="sidebar pr-6 min-w-[300px] hidden md:border-r-2  border-lines-color z-50 md:h-full md:flex md:flex-col justify-between md:items-center transition duration-200 ease-in-out bg-content-color"
         >
-          <!-- LOGO -->
-          <!-- class=" ml-8 mr-4 " -->
-          <div class="flex flex-col w-full">
-            <!-- NUMBER OF BOARDS -->
-            <div
-              class="numberOfCreatedBoards uppercase py-4 pl-8 text-[#828FA3] font-bold tracking-wide text-[12px]"
-            ></div>
-            <!-- BOARDS CREATED -->
-            <ul class="board-list w-full mr-6 md:flex md:flex-col">
-              <li
-                class="board__item active min-w-[240px] flex items-start cursor-pointer transition duration-200 ease-in-out focus:outline-none hover:opacity-80 text-[#828FA3] text-[15px]"
-              >
-                <a
-                  class="board__link active flex items-center py-4 px-8"
-                  href="#"
-                >
-                  <i class="icon-layout block mr-4"></i>
-                  <span class="block pr-15">Platform Launch</span>
-                </a>
-              </li>
-              <li
-                class="board__item active flex items-center cursor-pointer text-[#828FA3] text-[15px] duration-200 ease-in-out focus:outline-none hover:opacity-80 py-4 px-8"
-              >
-                <a class="board__link flex items-center" href="#">
-                  <i class="icon-layout block pr-4"></i>
-                  <span class="block">Marketing Plan</span>
-                </a>
-              </li>
-            </ul>
-            <!-- ADD NEW BOARD -->
-            <div
-              class="addNewBoard text-[#635FC7] text-[15px] cursor-pointer pr-6 py-4 transition duration-200 ease-in-out focus:outline-none hover:opacity-80"
-            >
-              <i class="icon-layout inline pl-8 fill-purple-500"></i>
-              + Create New Board
-            </div>
-          </div>
-
-          <div class="flex flex-col w-full">
-            <!-- THEME TOGGLE -->
-            <div
-              class="flex items-center m-3 md:m-0 justify-center w-full gap-4 py-[14px] bg-page-color rounded-2xl"
-            >
-              <i class="icon-sun text-[#828FA3]"></i>
-              <!-- TOGGLE -->
-              <div
-                class="theme-toggler pointer-events-auto cursor-pointer h-6 w-10 rounded-full p-1 ring-1 ring-inset transition duration-300 ease-in-out bg-primary-color hover:opacity-80"
-              >
+            <!-- LOGO -->
+            <!-- class=" ml-8 mr-4 " -->
+            <div class="flex flex-col w-full">
+                <!-- NUMBER OF BOARDS -->
                 <div
-                  class="h-4 w-4 rounded-full bg-white shadow-sm ring-1 ring-slate-700/10 transition duration-200 ease-in-out"
+                        class="numberOfCreatedBoards uppercase py-4 pl-8 text-[#828FA3] font-bold tracking-wide text-[12px]"
                 ></div>
-              </div>
-              <i class="icon-moon text-[#828FA3]"></i>
+                <!-- BOARDS CREATED -->
+                <ul class="board-list w-full mr-6 md:flex md:flex-col">
+                    <li
+                            class="board__item active min-w-[240px] flex items-start cursor-pointer transition duration-200 ease-in-out focus:outline-none hover:opacity-80 text-[#828FA3] text-[15px]"
+                    >
+                        <a
+                                class="board__link active flex items-center py-4 px-8"
+                                href="#"
+                        >
+                            <i class="icon-layout block mr-4"></i>
+                            <span class="block pr-15">Platform Launch</span>
+                        </a>
+                    </li>
+                    <li
+                            class="board__item active flex items-center cursor-pointer text-[#828FA3] text-[15px] duration-200 ease-in-out focus:outline-none hover:opacity-80 py-4 px-8"
+                    >
+                        <a class="board__link flex items-center" href="#">
+                            <i class="icon-layout block pr-4"></i>
+                            <span class="block">Marketing Plan</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- ADD NEW BOARD -->
+                <div
+                        class="addNewBoard text-[#635FC7] text-[15px] cursor-pointer pr-6 py-4 transition duration-200 ease-in-out focus:outline-none hover:opacity-80"
+                >
+                    <i class="icon-layout inline pl-8 fill-purple-500"></i>
+                    + Create New Board
+                </div>
             </div>
-            <!-- SIDEBAR HIDER -->
-            <button
-              class="btn sidebar-hider rounded-full w-full mt-2 mb-8 text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none hover:bg-btn-light-color text-primary-color"
-            >
-              <i class="icon-eye-close text-primary-color font-bold"></i>
-              Hide Sidebar
-            </button>
-          </div>
+
+            <div class="flex flex-col w-full">
+                <!-- THEME TOGGLE -->
+                <div
+                        class="flex items-center m-3 md:m-0 justify-center w-full gap-4 py-[14px] bg-page-color rounded-2xl"
+                >
+                    <i class="icon-sun text-[#828FA3]"></i>
+                    <!-- TOGGLE -->
+                    <div
+                            class="theme-toggler pointer-events-auto cursor-pointer h-6 w-10 rounded-full p-1 ring-1 ring-inset transition duration-300 ease-in-out bg-primary-color hover:opacity-80"
+                    >
+                        <div
+                                class="h-4 w-4 rounded-full bg-white shadow-sm ring-1 ring-slate-700/10 transition duration-200 ease-in-out"
+                        ></div>
+                    </div>
+                    <i class="icon-moon text-[#828FA3]"></i>
+                </div>
+                <!-- SIDEBAR HIDER -->
+                <button
+                        class="btn sidebar-hider rounded-full w-full mt-2 mb-8 text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none hover:bg-btn-light-color text-primary-color"
+                >
+                    <i class="icon-eye-close text-primary-color font-bold"></i>
+                    Hide Sidebar
+                </button>
+            </div>
         </aside>
         <!-- LAYOUT -->
         <section
-          class="bg-page-color w-full h-full flex flex-row flex-1 border-t-2 border-lines-color overflow-auto gap-8 p-8"
-          id="playGround"
-        >
-          <div class="column text-color flex flex-col gap-5">
+                class=" w-full h-fit flex flex-row flex-1 border-t-2 border-lines-color overflow-auto gap-8 p-8"
+                id="playGround"
+        ><!-- SIDEBAR REVEALER -->
             <div
-              class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
+                    class="absolute sidebar-revealer hidden md:block left-0 bottom-10 py-5"
             >
-              <p class="card__title text-color capitalize">
-                Create template structures
-              </p>
-              <p class="card__status text-slate-500">0 of 2 substasks</p>
+                <i
+                        class="icon-eye btn rounded-r-full text-[16px] text-[#fff] hover:bg-primary-light-color cursor-pointer px-6 py-5 bg-[#635FC7] transition duration-200 ease-in-out focus:outline-none"
+                ></i>
             </div>
-            <div
-              class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
-            >
-              <p class="card__title text-color capitalize">
-                dfasdfasdfadsf template structures
-              </p>
-              <p class="card__status text-slate-500">0 of 2 substasks</p>
+            <div class="column relative text-color flex flex-col w-280 gap-5">
+                <div class="status flex flex-row w-full h-full bg-page-color items-center font-bold font-mono text-xs uppercase gap-2">
+                    <div class="status__color h-4 w-4 gap-2 rounded-full bg-amber-300">
+                    </div>
+                    <span class="inline-block">Doing</span>
+                    <span class="inline-block">(23)</span>
+                </div>
+
             </div>
-            <div
-              class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
-            >
-              <p class="card__title text-color capitalize">
-                Create template structures
-              </p>
-              <p class="card__status text-slate-500">0 of 2 substasks</p>
-            </div>
-            <div
-              class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
-            >
-              <p class="card__title text-color capitalize">
-                Create template structures
-              </p>
-              <p class="card__status text-slate-500">0 of 2 substasks</p>
-            </div>
-          </div>
-          <div class="column text-color flex flex-col gap-5">
-            <div
-              class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
-            >
-              <p class="card__title text-color capitalize">
-                Create template structures
-              </p>
-              <p class="card__status text-slate-500">0 of 2 substasks</p>
-            </div>
-            <div
-              class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
-            >
-              <p class="card__title text-color capitalize">
-                dfasdfasdfadsf template structures
-              </p>
-              <p class="card__status text-slate-500">0 of 2 substasks</p>
-            </div>
-            <div
-              class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
-            >
-              <p class="card__title text-color capitalize">
-                Create template structures
-              </p>
-              <p class="card__status text-slate-500">0 of 2 substasks</p>
-            </div>
-            <div
-              class="card duration-200 bg-content-color w-280 py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer subpixel-antialiased"
-            >
-              <p class="card__title text-color capitalize">
-                Create template structures
-              </p>
-              <p class="card__status text-slate-500">0 of 2 substasks</p>
-            </div>
-          </div>
-          <!-- SIDEBAR REVEALER -->
-          <div
-            class="absolute sidebar-revealer hidden md:block left-0 bottom-10 py-5"
-          >
-            <i
-              class="icon-eye btn rounded-r-full text-[16px] text-[#fff] hover:bg-primary-light-color cursor-pointer px-6 py-5 bg-[#635FC7] transition duration-200 ease-in-out focus:outline-none"
-            ></i>
-          </div>
+
         </section>
-      </main>
-    </div>
+    </main>
+</div>
 
-    <!-- JAVASCRIPT LINKS -->
+<!-- JAVASCRIPT LINKS -->
 
-    <script src="/js/main.js"></script>
-    <script src="/components/header/header.js"></script>
-    <script src="/components/sidebar/sidebar.js"></script>
-    <script src="/components/layout/layout.js"></script>
-    <script src="/components/card/card.js"></script>
-  </body>
+<script src="/js/main.js"></script>
+<script src="/js/dataBase.js"></script>
+<!--    <script src="/js/render.js"></script>-->
+<script src="/components/header/header.js"></script>
+<script src="/components/sidebar/sidebar.js"></script>
+<script src="/components/layout/layout.js"></script>
+<script src="/components/card/card.js"></script>
+</body>
 </html>
