@@ -46,32 +46,62 @@ let startPosition = {x: 0, y: 0};
 let scrollLeft = 0;
 let scrollTop = 0;
 
-playGround.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    startPosition = {
-        x: e.clientX,
-        y: e.clientY,
-    };
-    scrollLeft = playGround.scrollLeft;
-    scrollTop = playGround.scrollTop;
-});
 
-document.addEventListener("mouseup", () => {
-    if (isDragging) {
-        isDragging = false;
-    }
-});
+function makeMouseScrollable(el) {
+    el.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startPosition = {
+            x: e.clientX,
+            y: e.clientY,
+        };
+        scrollLeft = playGround.scrollLeft;
+        scrollTop = playGround.scrollTop;
 
-document.addEventListener("mousemove", (e) => {
-    if (isDragging) {
-        const deltaX = e.clientX - startPosition.x;
-        const deltaY = e.clientY - startPosition.y;
+    });
+    el.addEventListener("mouseup", () => {
+        if (isDragging) {
+            isDragging = false;
+        }
+    });
 
-        playGround.scrollLeft = scrollLeft - deltaX;
-        playGround.scrollTop = scrollTop - deltaY;
-    }
-});
+    el.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+            const deltaX = e.clientX - startPosition.x;
+            const deltaY = e.clientY - startPosition.y;
 
+            playGround.scrollLeft = scrollLeft - deltaX;
+            playGround.scrollTop = scrollTop - deltaY;
+        }
+    });
+}
+
+function stopMouseScrolling(el) {
+    el.removeEventListener('mousedown', (e) => {
+        isDragging = true;
+        startPosition = {
+            x: e.clientX,
+            y: e.clientY,
+        };
+        scrollLeft = playGround.scrollLeft;
+        scrollTop = playGround.scrollTop;
+
+    })
+    el.removeEventListener("mouseup", () => {
+        if (isDragging) {
+            isDragging = false;
+        }
+    });
+
+    el.removeEventListener("mousemove", (e) => {
+        if (isDragging) {
+            const deltaX = e.clientX - startPosition.x;
+            const deltaY = e.clientY - startPosition.y;
+
+            playGround.scrollLeft = scrollLeft - deltaX;
+            playGround.scrollTop = scrollTop - deltaY;
+        }
+    })
+}
 
 function findColumnWithLargestHeight() {
     // Get all elements with the class "column"
@@ -84,6 +114,7 @@ function findColumnWithLargestHeight() {
     // Iterate through each column
     columns.forEach((column) => {
         // Get the current column's height
+        stopMouseScrolling(column)
         const columnHeight = column.scrollHeight;
 
         // Check if the current column is taller than the current maximum
@@ -117,12 +148,12 @@ function calculateSumOfCardHeights(column) {
 }
 
 const boardLinks = document.querySelectorAll(".board__link")
-const boardItems =document.querySelectorAll(".board__item")
+const boardItems = document.querySelectorAll(".board__item")
 boardItems.forEach(boardItem => {
     boardItem.addEventListener('click', (e) => {
         boardLinks.forEach(board => {
             board.classList.remove('active')
         })
-        console.log(boardItem.querySelector('button').classList.add('active'))
+        boardItem.querySelector('button').classList.add('active')
     })
 })
