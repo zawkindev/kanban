@@ -1,11 +1,17 @@
 let dragSrcEl;
 let dragging = false
+
+let isDragging = false;
+let startPosition = {x: 0, y: 0};
+let scrollLeft = 0;
+let scrollTop = 0;
+
 makeMouseScrollable(playGround)
 while (dragging) {
     isDragging = false
-    let startPosition = {x: 0, y: 0};
-    let scrollLeft = 0;
-    let scrollTop = 0;
+    startPosition = {x: 0, y: 0};
+    scrollLeft = 0;
+    scrollTop = 0;
     stopMouseScrolling(playGround)
 }
 playGround.effectAllowed = "move"
@@ -15,9 +21,9 @@ function drag() {
     dragging = true;
 
     isDragging = false
-    let startPosition = {x: 0, y: 0};
-    let scrollLeft = 0;
-    let scrollTop = 0;
+    startPosition = {x: 0, y: 0};
+    scrollLeft = 0;
+    scrollTop = 0;
     stopMouseScrolling()
 
 
@@ -32,9 +38,9 @@ function dragStart(e) {
     e.dataTransfer.setData("text/html", this.innerHTML);
 
     isDragging = false
-    let startPosition = {x: 0, y: 0};
-    let scrollLeft = 0;
-    let scrollTop = 0;
+    startPosition = {x: 0, y: 0};
+    scrollLeft = 0;
+    scrollTop = 0;
     stopMouseScrolling(playGround)
     return false;
 }
@@ -46,9 +52,9 @@ function dragOver(e) {
     this.classList.add("dragover");
 
     isDragging = false
-    let startPosition = {x: 0, y: 0};
-    let scrollLeft = 0;
-    let scrollTop = 0;
+    startPosition = {x: 0, y: 0};
+    scrollLeft = 0;
+    scrollTop = 0;
     stopMouseScrolling(playGround)
     return false;
 }
@@ -59,9 +65,9 @@ function dragLeave(e) {
     this.classList.remove("dragover");
 
     isDragging = false
-    let startPosition = {x: 0, y: 0};
-    let scrollLeft = 0;
-    let scrollTop = 0;
+    startPosition = {x: 0, y: 0};
+    scrollLeft = 0;
+    scrollTop = 0;
     stopMouseScrolling(playGround)
     return false;
 }
@@ -86,9 +92,9 @@ function dragEnd() {
     });
 
     isDragging = false
-    let startPosition = {x: 0, y: 0};
-    let scrollLeft = 0;
-    let scrollTop = 0;
+    startPosition = {x: 0, y: 0};
+    scrollLeft = 0;
+    scrollTop = 0;
     stopMouseScrolling(playGround)
     dragging = true
     return false;
@@ -98,9 +104,9 @@ function mouseDown() {
     dragging = true
 
     isDragging = false
-    let startPosition = {x: 0, y: 0};
-    let scrollLeft = 0;
-    let scrollTop = 0;
+    startPosition = {x: 0, y: 0};
+    scrollLeft = 0;
+    scrollTop = 0;
     stopMouseScrolling(playGround)
     return false
 }
@@ -108,8 +114,8 @@ function mouseDown() {
 function mouseUp() {
 
     isDragging = false
-    let startPosition = {x: 0, y: 0};
-    let scrollLeft = 0;
+    startPosition = {x: 0, y: 0};
+    scrollLeft = 0;
     let scrollTop = 0;
     stopMouseScrolling(playGround)
     return false
@@ -135,11 +141,6 @@ cards.forEach((card) => {
 
 
 
-
-let isDragging = false;
-let startPosition = {x: 0, y: 0};
-let scrollLeft = 0;
-let scrollTop = 0;
 
 
 function makeMouseScrollable(el) {
