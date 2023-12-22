@@ -157,9 +157,9 @@ function dragOverColumn(e) {
         this.appendChild(dragSrcEl)
     const newColumn = document.querySelector('#newColumn')
     const columnsss = document.querySelectorAll(".column")
-    const theColumn = getColumnWithMostChildNodes(columnsss).querySelectorAll(".card").length
+    const theColumn = getColumnWithMostChildNodes(columnsss)
     console.log(theColumn)
-    newColumn.style.height = `${theColumn * 101}px`
+    newColumn.style.height = `${calculateSumOfCardHeights(theColumn) + theColumn.querySelectorAll(".card").length*18}px`
     columnsss.forEach(col=>{
         col.style.height = `${findColumnWithLargestHeight().scrollHeight }px`
     })
