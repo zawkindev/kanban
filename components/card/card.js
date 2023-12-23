@@ -5,6 +5,7 @@ let startPosition = {x: 0, y: 0};
 let scrollLeft = 0;
 let scrollTop = 0;
 let last = document.querySelectorAll('.dragover')[0]
+const header = document.querySelector("header")
 let draggingColumn;
 
 
@@ -86,6 +87,7 @@ function dragOver(e) {
             draggingColumn.insertBefore(dragSrcEl, this.nextElementSibling);
         }
     }
+    this.scrollIntoView({behavior:"smooth",block:"end"})
 
     isDragging = false;
     startPosition = {x: 0, y: 0};
@@ -113,12 +115,14 @@ function dragLeave(e) {
 function dragDrop(e) {
     this.classList.remove("dragover")
     dragging = false
+    header.scrollIntoView({behavior:"smooth",block:"end"})
     makeMouseScrollable(playGround)
     return false;
 }
 
 function dragEnd() {
     this.classList.remove("dragover")
+    header.scrollIntoView({behavior:"smooth",block:"end"})
     isDragging = false
     startPosition = {x: 0, y: 0};
     scrollLeft = 0;
@@ -149,7 +153,8 @@ this.classList.remove('dragover')
     return false
 }
 
-function dragLeaveColumn(e) {
+function dragDropColumn(e) {
+    header.scrollIntoView({behavior:"smooth",block:"end"})
     return false
 }
 
@@ -161,8 +166,16 @@ function dragOverColumn(e) {
     console.log(theColumn)
     newColumn.style.height = `${calculateSumOfCardHeights(theColumn) + theColumn.querySelectorAll(".card").length*18}px`
     columnsss.forEach(col=>{
-        col.style.height = `${findColumnWithLargestHeight().scrollHeight }px`
+        col.style.height = `${100}%`
     })
+
+    // this.scrollIntoView({behavior:"smooth"})
+    if (this.querySelectorAll('.card').length===theColumn.querySelectorAll('.card').length){
+
+    }else{
+
+        this.scrollIntoView({behavior:"smooth",block:"start"})
+    }
     return false
 }
 
@@ -180,7 +193,7 @@ function addEventsDragAndDrop(el) {
 const columnss = document.querySelectorAll(".column")
 columnss.forEach(col => {
     col.addEventListener("dragover", dragOverColumn, false)
-    col.addEventListener("dragleave", dragLeaveColumn, false)
+    col.addEventListener("drop", dragDropColumn, false)
 })
 // make images Draggable <END>
 
