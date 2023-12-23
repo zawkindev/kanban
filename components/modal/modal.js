@@ -1,10 +1,10 @@
+window.addEventListener("DOMContentLoaded",()=>{
 const blocker = document.querySelector(".blocker");
 const closeModalButtons = document.querySelectorAll(".close-modal");
 const toggleModalButtons = document.querySelectorAll(".toggle-modal-button");
 const modals = document.querySelectorAll(".modal");
 const modalInputs = document.querySelectorAll(".modal-input");
 const buttons = document.querySelectorAll(".btn");
-
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
     e.preventDefault();
@@ -22,11 +22,12 @@ console.log(modalInputs);
 const openModal = (modalId) => {
   const modal = document.getElementById(modalId);
   document.body.classList.add("active");
+  document.querySelector("#modal-bg").classList.remove("hidden")
   modal.classList.remove("hidden");
   blocker.classList.remove("hidden");
 };
 const removeActiveModals = (modalInput) => {
-  if (modalInput.value.trim() === "") {
+  if (modalInput.value.trim().length === 0) {
     modalInput.classList.add("focus:border-danger-color");
   } else {
     modalInput.classList.remove("focus:border-danger-color");
@@ -44,6 +45,7 @@ modalInputs.forEach((modalInput) => {
 const closeModal = (modalId) => {
   const modal = document.getElementById(modalId);
   document.body.classList.remove("active");
+  document.querySelector("#modal-bg").classList.add("hidden")
   modal.classList.add("hidden");
   blocker.classList.add("hidden");
 };
@@ -77,3 +79,4 @@ document.addEventListener("keydown", (e) => {
     blocker.classList.add("hidden");
   }
 });
+})

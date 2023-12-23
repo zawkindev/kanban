@@ -3,19 +3,21 @@ const addColumnBtn = document.querySelector("#addColumn");
 const columnsElement = document.querySelector("#columns")
 const columns = document.querySelectorAll(".column");
 const column = document.querySelectorAll(".column")[0];
-const defaultBoard = fetchData().selectedBoard
-const defaultColumn = fetchData().selectedColumn
+let selectedBoard = fetchData().selectedBoard
+let selectedColumn = fetchData().selectedColumn
 
-function createCardElement(taskId,title, taskCount, total) {
+function createCardElement(cardId, title, tasks, total) {
     const div = document.createElement('div')
-    div.setAttribute("class", "card  bg-content-color w-280 h-fit py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer hover:text-primary-color subpixel-antialiased")
-    div.setAttribute("id", taskId)
+    div.setAttribute("class", "card toggle-modal-button bg-content-color w-280 h-fit py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer hover:text-primary-color subpixel-antialiased")
+    div.setAttribute("id", cardId)
+    div.setAttribute("tasks", JSON.stringify(tasks))
+    div.setAttribute("modal-id", "edit-task-modal")
     div.innerHTML =
-            `
+        `
             <p class="card__title text-color capitalize">
                 ${title}
             </p>
-            <span class="card__status text-slate-500">${taskCount} of ${total} subtasks</span>
+            <span class="card__status text-slate-500">${tasks.length} of ${total} subtasks</span>
             `
     return div;
 }
@@ -25,36 +27,74 @@ function createColumnElement(id, name, taskCount, color) {
     div.setAttribute("class", "column relative h-fit h-min-[60px] text-color flex flex-col w-280 gap-5")
     div.setAttribute("id", id)
     div.innerHTML =
-                `
+        `
                 <div class="status flex flex-row w-full bg-page-color items-center font-bold font-mono  ${color} text-xs uppercase gap-2">
                     <div class="status__color h-4 w-4 gap-2 rounded-full bg-amber-300">
                     </div>
-                    <span class="inline-block">${name}</span>
+                    <span class="inline-block column-name">${name}</span>
                     <span class="inline-block">(${taskCount})</span>
                 </div>    
                 `
     return div
 }
 
+// function createBoardElement(id,name,columns){
+//    const div document.createElement("div")
+// }
+
+function createBoardElement(id, name, selected) {
+    const div = document.createElement('li');
+    div.setAttribute("class", "board__item active min-w-[240px] flex items-start cursor-pointer transition duration-400 ease-in-out focus:outline-none hover:opacity-80 text-[#828FA3] text-[15px]");
+    div.setAttribute("id", id)
+    div.innerHTML = `
+              <button
+                class="btn ${selected ? "active" : ""} board__link w-full flex items-center gap-4 text-[#828fa3] rounded-r-full text-left font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[15px] focus:outline-none hover:bg-btn-hover-color hover:text-primary-color md:mr-6 p-[10px] md:py-4 px-6"
+                 >
+                <i class="icon-layout block mr-4"></i>
+                <span class="block pr-15">${name}</span>
+              </button>
+    `
+    return div;
+}
+
+function createEmptyColumn() {
+    const div = document.createElement('div')
+    div.setAttribute("id", "newColumn")
+    div.setAttribute("class", "toggle-modal-button w-280 h-fit mt-9 flex rounded-md bg-gradient-primary cursor-pointer items-center content-center overflow-visible p-5 mb-48")
+    div.setAttribute("modal-id", "edit-board-modal")
+    div.innerHTML = `
+              <span class="text-color text-center text-slate-500 capitalize text-2xl"><span
+              class="text-3xl text-center">+</span> New Column</span>
+    `
+    return div
+}
+
 function renderCards(where, whatList) {
     whatList.forEach(card => {
-        const cardElement = createCardElement(card.id,card.title, 0, card.tasks.length);
+        const cardElement = createCardElement(card.id, card.title, card.tasks, card.tasks.length);
         where.appendChild(cardElement);
     });
+    document.querySelector("#playGround").effectAllowed = "move"
+    document.querySelectorAll(".card").forEach(el => {
+        addEventsDragAndDrop(el)
+    })
+    cardJS()
 }
 
 function renderColumns(where, whatList, newColumnElement) {
     whatList.forEach(column => {
-        const columnElement = createColumnElement(column.id,column.name,column.cards.length,"text-slate-500");
-        where.insertBefore(columnElement,newColumnElement);
-        renderCards(document.querySelector(`#${column.id}`),column.cards)
+        const columnElement = createColumnElement(column.id, column.name, column.cards.length, "text-slate-500");
+        where.insertBefore(columnElement, newColumnElement);
+        renderCards(document.querySelector(`#${column.id}`), column.cards)
     });
 }
 
-function renderBoard(){
-
+function renderBoard(where, whatList) {
+    whatList.forEach(board => {
+        const boardElement = createBoardElement(board.id, board.name, false)
+        where.appendChild(boardElement)
+    })
 }
-
 
 if (columns.length === 0) {
     const div = document.createElement("div");
@@ -73,8 +113,9 @@ if (columns.length === 0) {
     makeMouseScrollable(playGround)
 } else {
 
-    renderColumns(playGround,getBoardById(defaultBoard,fetchData()).columns,document.querySelector("#newColumn"))
-
+    const boardList = document.querySelector(".board-list")
+    renderBoard(document.querySelector(".board-list"), fetchData().boards)
+    console.log(boardList)
     // Render cards
     // const cards = getColumnById(1, 11, fetchData()).cards
 
@@ -120,7 +161,6 @@ function getColumnWithMostChildNodes(columns) {
             maxColumn = column;
         }
     });
-    console.log(maxColumn)
     return maxColumn;
 }
 
@@ -146,9 +186,29 @@ const boardLinks = document.querySelectorAll(".board__link")
 const boardItems = document.querySelectorAll(".board__item")
 boardItems.forEach(boardItem => {
     boardItem.addEventListener('click', (e) => {
+        selectedBoard = boardItem.getAttribute("id")
+        const columns = document.querySelectorAll(".column")
+        columns.forEach(col => {
+            col.remove()
+        })
+        renderColumns(playGround, getBoardById(selectedBoard, fetchData()).columns, document.querySelector("#newColumn"))
+
+
+        cardJS()
+
+        const newColumn = document.querySelector('#newColumn')
+        newColumn.style.height = `${findColumnWithLargestHeight().scrollHeight - 34}px`
+        makeMouseScrollable(playGround)
+        // const newColumnElement = createEmptyColumn()
+        // playGround.appendChild(newColumnElement)
         boardLinks.forEach(board => {
             board.classList.remove('active')
         })
         boardItem.querySelector('button').classList.add('active')
     })
 })
+
+function renderUI() {
+    document.querySelector(".board__item").click()
+}
+

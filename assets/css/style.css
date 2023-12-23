@@ -18,6 +18,12 @@
   overflow-y: scroll;
 }
 
+#modal-bg{
+  background: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  z-index: 9999;
+}
+
 .column{
   overflow: visible;
   min-width: 280px;
