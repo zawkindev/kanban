@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8955c9ea-f604-4236-80dc-a7b3b14edcd4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/output.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/output.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/card/card.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/card/card.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/layout/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/layout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/modal/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal/modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/dataBase.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dataBase.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +76,7 @@
       <workItem from="1703245844701" duration="172000" />
       <workItem from="1703246170296" duration="16605000" />
       <workItem from="1703320163107" duration="699000" />
-      <workItem from="1703321018872" duration="5306000" />
+      <workItem from="1703321018872" duration="5990000" />
     </task>
     <servers />
   </component>

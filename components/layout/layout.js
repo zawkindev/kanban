@@ -193,7 +193,7 @@ boardItems.forEach(boardItem => {
         })
         renderColumns(playGround, getBoardById(selectedBoard, fetchData()).columns, document.querySelector("#newColumn"))
 
-
+        linkModals()
         cardJS()
 
         const newColumn = document.querySelector('#newColumn')
@@ -212,3 +212,4 @@ function renderUI() {
     document.querySelector(".board__item").click()
 }
 
+cardJS()

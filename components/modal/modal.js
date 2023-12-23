@@ -1,4 +1,5 @@
-window.addEventListener("DOMContentLoaded",()=>{
+function linkModals(){
+
 const blocker = document.querySelector(".blocker");
 const closeModalButtons = document.querySelectorAll(".close-modal");
 const toggleModalButtons = document.querySelectorAll(".toggle-modal-button");
@@ -79,4 +80,4 @@ document.addEventListener("keydown", (e) => {
     blocker.classList.add("hidden");
   }
 });
-})
+}
