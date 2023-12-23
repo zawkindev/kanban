@@ -193,8 +193,6 @@ boardItems.forEach(boardItem => {
         })
         renderColumns(playGround, getBoardById(selectedBoard, fetchData()).columns, document.querySelector("#newColumn"))
 
-        linkModals()
-        cardJS()
 
         const newColumn = document.querySelector('#newColumn')
         newColumn.style.height = `${findColumnWithLargestHeight().scrollHeight - 34}px`
@@ -205,6 +203,7 @@ boardItems.forEach(boardItem => {
             board.classList.remove('active')
         })
         boardItem.querySelector('button').classList.add('active')
+        linkModals()
     })
 })
 

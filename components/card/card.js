@@ -198,17 +198,6 @@ function dragOverColumn(e) {
     })
 
 
-    let last = document.querySelectorAll('.dragover')[0].closest(".column");
-
-    if (last === undefined) {
-        this.lastElementChild.classList.add("dragover");
-    } else {
-        last.lastElementChild.classList.remove("dragover");
-        this.lastElementChild.classList.add("dragover");
-        last = this;
-    }
-
-
     // this.scrollIntoView({behavior:"smooth"})
     if (this.querySelectorAll('.card').length === theColumn.querySelectorAll('.card').length) {
 
@@ -496,17 +485,6 @@ function dragOverColumn(e) {
     columnsss.forEach(col => {
         col.style.height = `${100}%`
     })
-
-    let last = document.querySelectorAll('.dragover')[0].closest(".column");
-
-    if (last === undefined) {
-        this.lastElementChild.classList.add("dragover");
-    } else {
-        last.lastElementChild.classList.remove("dragover");
-        this.lastElementChild.classList.add("dragover");
-        last = this;
-    }
-
 
 
     // this.scrollIntoView({behavior:"smooth"})
