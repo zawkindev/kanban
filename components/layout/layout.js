@@ -203,12 +203,13 @@ boardItems.forEach(boardItem => {
             board.classList.remove('active')
         })
         boardItem.querySelector('button').classList.add('active')
-        linkModals()
+        window.addEventListener("DOMContentLoaded",()=>{
+cardJS()
+            linkModals()
+        })
     })
 })
 
 function renderUI() {
     document.querySelector(".board__item").click()
 }
-
-cardJS()
