@@ -6,6 +6,8 @@ let scrollLeft = 0;
 let scrollTop = 0;
 let last = document.querySelectorAll('.dragover')[0]
 const header = document.querySelector("header")
+const cards = document.querySelectorAll(".card");
+const columnss = document.querySelectorAll(".column")
 let draggingColumn;
 let droppedColumn;
 let startedColumn;
@@ -195,6 +197,18 @@ function dragOverColumn(e) {
         col.style.height = `${100}%`
     })
 
+
+    let last = document.querySelectorAll('.dragover')[0].closest(".column");
+
+    if (last === undefined) {
+        this.lastElementChild.classList.add("dragover");
+    } else {
+        last.lastElementChild.classList.remove("dragover");
+        this.lastElementChild.classList.add("dragover");
+        last = this;
+    }
+
+
     // this.scrollIntoView({behavior:"smooth"})
     if (this.querySelectorAll('.card').length === theColumn.querySelectorAll('.card').length) {
 
@@ -216,14 +230,12 @@ function addEventsDragAndDrop(el) {
     el.addEventListener("mouseup", mouseUp, false)
 }
 
-const columnss = document.querySelectorAll(".column")
 columnss.forEach(col => {
     col.addEventListener("dragover", dragOverColumn, false)
     col.addEventListener("drop", dragDropColumn, false)
 })
 // make images Draggable <END>
 
-const cards = document.querySelectorAll(".card");
 cards.forEach((card) => {
     card.draggable = true;
     addEventsDragAndDrop(card);
@@ -287,7 +299,6 @@ function stopMouseScrolling(el) {
 }
 function cardJS(){
 
-let dragSrcEl;
 let dragging = false
 let isDragging = false;
 let startPosition = {x: 0, y: 0};
@@ -362,6 +373,8 @@ function dragOver(e) {
     draggingColumn = this.closest(".column");
     e.preventDefault();
     e.dataTransfer.dropEffect = "move";
+
+
     last = document.querySelectorAll('.dragover')[0];
 
     if (last === undefined) {
@@ -483,6 +496,18 @@ function dragOverColumn(e) {
     columnsss.forEach(col => {
         col.style.height = `${100}%`
     })
+
+    let last = document.querySelectorAll('.dragover')[0].closest(".column");
+
+    if (last === undefined) {
+        this.lastElementChild.classList.add("dragover");
+    } else {
+        last.lastElementChild.classList.remove("dragover");
+        this.lastElementChild.classList.add("dragover");
+        last = this;
+    }
+
+
 
     // this.scrollIntoView({behavior:"smooth"})
     if (this.querySelectorAll('.card').length === theColumn.querySelectorAll('.card').length) {
