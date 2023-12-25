@@ -203,9 +203,8 @@ boardItems.forEach(boardItem => {
             board.classList.remove('active')
         })
         boardItem.querySelector('button').classList.add('active')
-        window.addEventListener("DOMContentLoaded",()=>{
-cardJS()
-            linkModals()
+        window.addEventListener("DOMContentLoaded", () => {
+            cardJS()
         })
     })
 })
