@@ -1178,22 +1178,6 @@ function openTaskModal(taskId) {
     }
 }
 
-function generateTaskModal(task, dropdownElement, statusValues) {
-    // ... (existing code)
-
-    // Get the dropdown options
-    const dropdownOptions = statusValues.map(generateStatusToDropdown).join('')
-
-    // Set up the dropdown for the task modal
-    const dropdownMenu = dropdownElement.querySelector('.dropdown-menu')
-    if (dropdownMenu) {
-        dropdownMenu.innerHTML = dropdownOptions
-        setupDropdown(dropdownMenu, task)
-    }
-
-    // ... (existing code)
-}
-
 function deleteTask(taskId) {
     console.log(taskId)
     // Find the board and column that contain the task
@@ -1285,22 +1269,11 @@ function saveChanges(taskId) {
 }
 
 // Function to find a task by ID
-function findTaskById(taskId) {
-    for (const board of boardData.boards) {
-        for (const column of board.columns) {
-            const task = column.tasks.find((task) => task.id === taskId)
-            if (task) {
-                return task
-            }
-        }
-    }
-    return null
-}
 
 // Function to update the UI with the modified data
 function updateUI() {
     // Implement your logic to update the UI with the modified data
-    renderBoard(renderBoard(boardData.selectedBoard))
+    renderBoard(boardData.selectedBoard)
 }
 
 function generateTaskModal(task, dropdownElement, statusValues) {
@@ -1314,8 +1287,7 @@ function generateTaskModal(task, dropdownElement, statusValues) {
 
     // Generate unique IDs for subtasks and update boardData
     const subtasksWithIds = task.subtasks.map((subtask) => {
-        const uniqueSubtaskId = generateUniqueIdFromTitle(subtask.title)
-        subtask.id = uniqueSubtaskId // Update subtask ID in boardData
+        subtask.id = generateUniqueIdFromTitle(subtask.title) // Update subtask ID in boardData
         return subtask
     })
 
@@ -1540,13 +1512,11 @@ function findSubtaskById(subtaskId) {
     // For example, you can use boardData to find the subtask
     // Replace this with your actual implementation
 
-    const foundSubtask = boardData.boards
+    return boardData.boards
         .flatMap((board) => board.columns)
         .flatMap((column) => column.tasks)
         .flatMap((task) => task.subtasks)
         .find((subtask) => subtask.id === subtaskId)
-
-    return foundSubtask
 }
 
 function findTaskById(taskId) {
@@ -1673,10 +1643,9 @@ function generateKanbanBoardName(board) {
 }
 
 function generateKanbanBoardNames(boardData) {
-    const boardNamesHtml = boardData.boards
+    return boardData.boards
         .map((board) => generateKanbanBoardName(board))
         .join('')
-    return boardNamesHtml
 }
 
 function generateKanbanBoard(board) {
