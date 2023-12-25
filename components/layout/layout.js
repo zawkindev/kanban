@@ -1,8 +1,5 @@
 const playGround = document.querySelector("#playGround");
-const addColumnBtn = document.querySelector("#addColumn");
-const columnsElement = document.querySelector("#columns")
 const columns = document.querySelectorAll(".column");
-const column = document.querySelectorAll(".column")[0];
 let selectedBoard = fetchData().selectedBoard
 let selectedColumn = fetchData().selectedColumn
 

@@ -1066,6 +1066,9 @@ const boardData = {
     selectedTask: 0,
 };
 
+const boardList = document.querySelector(".board-list")
+
+
 function renderBoard(boardId) {
     // Check if boardData.boards is an array
     if (!Array.isArray(boardData.boards)) {

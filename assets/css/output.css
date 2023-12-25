@@ -944,12 +944,12 @@ video {
   overflow: visible;
 }
 
-.overflow-y-auto {
-  overflow-y: auto;
+.overflow-scroll {
+  overflow: scroll;
 }
 
-.overflow-x-scroll {
-  overflow-x: scroll;
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .rounded {
