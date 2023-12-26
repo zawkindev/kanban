@@ -1,58 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("../icomoon/style.css");
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap');
+@import url('../icomoon/style.css');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
+  font-family: sans-serif;
 }
 
-#playGround{
-  justify-content: safe start;
-  overflow-y: scroll;
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #635fc7 #ffffff;
 }
 
-#modal-bg{
-  background: rgba(0, 0, 0, 0.5);
-  height: 100vh;
-  z-index: 9999;
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
-.column{
-  overflow: visible;
-  min-width: 280px;
-  min-height: 100px;
-  align-content: start;
-
+*::-webkit-scrollbar-track {
+  background: #383672;
 }
 
-aside{
-  max-height: calc(100vh - 6rem);
+*::-webkit-scrollbar-thumb {
+  background-color: #635fc7;
+  border-radius: 10px;
 }
 
-#newColumn{
+body.active {
+  overflow-y: hidden;
+}
+
+#newColumn {
   justify-content: center;
   min-width: 280px;
 }
 
-.card{
+.card {
   border: 2px solid transparent;
 }
-
-.card:hover p{
- color: #635fc7;
+.card:hover .card__title {
+  color: #635fc7;
+  transition: 0.2s ease-in-out;
 }
 
-.dragover{
+.dragover {
   border: 2px solid #635fc7;
   opacity: 50%;
-  animation: zoomInZoomOut .3s;
+  animation: zoomInZoomOut .4s;
 }
 
 @keyframes zoomInZoomOut {
@@ -67,9 +64,6 @@ aside{
 .theme-light {
   --bg-page-color: #f4f7fd;
   --bg-content-color: #fff;
-  --sh-color: #828fa3;
-  --gradient-f: #e4f7fd;
-  --gradient-t: #e0ebfa;
   --text-color: #000112;
   --lines-color: #e4ebfa;
   --gray-color: #828fa3;
@@ -79,9 +73,6 @@ aside{
 .theme-dark {
   --bg-page-color: #20212c;
   --bg-content-color: #2b2c37;
-  --sh-color: #3e3f4e;
-  --gradient-f: #3e3f4e;
-  --gradient-t: #2b2c37;
   --text-color: #fff;
   --lines-color: #3e3f4e;
   --gray-color: #fff;
@@ -99,10 +90,10 @@ aside{
 }
 
 /* Apply Tailwind styles based on the theme class */
-[data-theme="light"] {
+[data-theme='light'] {
   @apply theme-light;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   @apply theme-dark;
 }

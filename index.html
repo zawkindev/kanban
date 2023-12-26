@@ -1,184 +1,533 @@
 <!doctype html>
-<html class="w-full h-full bg-page-color dark" lang="en" xmlns="http://www.w3.org/1999/html">
+<html class="w-full h-full bg-page-color" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Document</title>
+    <link href="/assets/css/variables.css" rel="stylesheet" />
+    <link href="/components/button/button.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+    <link href="/assets/css/output.css" rel="stylesheet" />
+    <link href="/components/layout/layout.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/components/form/checkbox/checkbox.css" />
+    <link rel="stylesheet" href="/componentsform/dropdown/dropdown.css" />
+    <link rel="stylesheet" href="/componentsform/input/input.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Document</title>
-  <link href="/assets/css/variables.css" rel="stylesheet" />
-  <link href="/components/button/button.css" rel="stylesheet" />
-  <link href="./assets/css/style.css" rel="stylesheet" />
-  <link href="/assets/css/output.css" rel="stylesheet" />
-  <link href="/components/layout/layout.css" rel="stylesheet" />
-  <link href="/components/card/card.css" rel="stylesheet" />
-
-  <link href="/components/form/input/input.css" rel="stylesheet" />
-  <link href="/components/form/dropdown/dropdown.css" rel="stylesheet" />
-  <!-- <link
-             href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-             rel="stylesheet" /> -->
-</head>
-
-<body class="w-screen h-screen font-plus-jakarta-sans flex flex-col overflow-hidden">
-  <div class="flex flex-col h-full w-full">
-    <!-- HEADER -->
-    <header class="flex items-center px-6 z-10 bg-content-color h-28 w-full overflow-visible">
-      <!-- HEADER LOGO -->
-      <div
-        class="h-full min-w-[279px] flex text-black font-bold md:border-r-2 border-lines-color transition duration-200 ease-in-out focus:outline-none hover:opacity-80">
-        <a class="header-logo cursor-pointer md:flex flex items-center justify-center gap-4" href="index.html">
-          <svg class="" fill="none" height="25" viewBox="0 0 24 25" width="24" xmlns="http://www.w3.org/2000/svg">
-            <rect fill="#635FC7" height="25" rx="2" width="6" />
-            <rect fill="#635FC7" height="25" opacity="0.75" rx="2" width="6" x="9" />
-            <rect fill="#635FC7" height="25" opacity="0.5" rx="2" width="6" x="18" />
-          </svg>
-          <span class="hidden text-2xl md:block text-color">Kanban</span>
-        </a>
-      </div>
-      <div class="flex w-full justify-between items-center pl-4 py-5 md:py-5 md:pl-8">
+  <body class="w-screen h-screen font-plus-jakarta-sans overflow-hidden">
+    <div class="flex flex-col h-full w-full">
+      <!-- HEADER -->
+      <header
+        class="flex items-center w-full px-6 z-0 bg-content-color overflow-visible"
+      >
+        <!-- HEADER LOGO -->
         <div
-          class="flex place-items-center gap-2 cursor-pointer transition duration-200 ease-in-out focus:outline-none hover:opacity-80">
-          <!-- Name of current Board -->
-          <span class="currentBoard text-color text-[18px] md:text-[20px] lg:text-[24px] font-bold">Platform
-            Launch</span>
-          <!-- SIDEBAR OPENER ICON -->
-          <span class="">
+          class="h-full flex text-black font-bold md:border-r-2 border-lines-color transition duration-200 ease-in-out focus:outline-none hover:opacity-80"
+        >
+          <a
+            class="header-logo md:min-w-[274px] cursor-pointer md:flex flex items-center gap-4"
+            href="layout.html"
+          >
             <svg
-              class="sidebarOpenerIcon rotate-90 inline-block w-full transition cursor-pointer duration-200 ease-in-out md:hidden hover:scale-150"
-              fill="none" height="7" viewBox="0 0 7 9" width="9" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 1L5 5L9 1" stroke="#635FC7" stroke-width="2" />
+              class=""
+              fill="none"
+              height="25"
+              viewBox="0 0 24 25"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect fill="#635FC7" height="25" rx="2" width="6" />
+              <rect
+                fill="#635FC7"
+                height="25"
+                opacity="0.75"
+                rx="2"
+                width="6"
+                x="9"
+              />
+              <rect
+                fill="#635FC7"
+                height="25"
+                opacity="0.5"
+                rx="2"
+                width="6"
+                x="18"
+              />
             </svg>
-          </span>
+            <span class="hidden text-2xl md:block text-color">Kanban</span>
+          </a>
         </div>
+        <div
+          class="flex w-full justify-between items-center pl-4 py-5 md:py-5 md:pl-8"
+        >
+          <div
+            class="flex place-items-center gap-2 cursor-pointer transition duration-200 ease-in-out focus:outline-none hover:opacity-80"
+          >
+            <!-- Name of current Board -->
 
-        <div class="flex items-center gap-4 md:gap-6">
-          <!-- ADD NEW TASK BUTTON -->
-          <button
-            class="btn toggle-modal-button w-full rounded-full text-center font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[15px] focus:outline-none hover:bg-primary-light-color bg-primary-color text-white md:mr-6 p-[10px] md:py-4 px-6"
-            modal-id="add-task-modal" role="button">
-            +
-            <span class="hidden md:inline-block">Add New Task</span>
-          </button>
-          <!-- TRIPLE DOTS -->
-
-          <i class="icon-menu cursor-pointer text-color"></i>
-        </div>
-      </div>
-    </header>
-
-    <!-- MAIN -->
-    <main class="relative flex flex-1 w-full h-full">
-      <div class="blocker"></div>
-      <!-- SIDEBAR -->
-      <aside
-        class="sidebar pr-6 min-w-[300px] md:border-r-2  border-lines-color md:h-full md:flex md:flex-col justify-between md:items-center transition duration-200 ease-in-out bg-content-color">
-        <!-- LOGO -->
-        <!-- class=" ml-8 mr-4 " -->
-        <div class="flex flex-col w-full">
-          <!-- NUMBER OF BOARDS -->
-          <div class="numberOfCreatedBoards uppercase py-4 pl-8 text-[#828FA3] font-bold tracking-wide text-[12px]">
+            <span
+              class="currentBoard text-color text-[18px] md:text-[20px] lg:text-[24px] font-bold"
+            ></span>
+            <!-- SIDEBAR OPENER ICON -->
+            <span class="">
+              <svg
+                class="sidebarOpenerIcon rotate-90 inline-block w-full transition cursor-pointer duration-200 ease-in-out md:hidden hover:scale-150"
+                fill="none"
+                height="7"
+                viewBox="0 0 7 9"
+                width="9"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M1 1L5 5L9 1" stroke="#635FC7" stroke-width="2" />
+              </svg>
+            </span>
           </div>
-          <!-- BOARDS CREATED -->
-          <ul class="board-list w-full mr-6 md:flex md:flex-col">
-            <!--            <li-->
-            <!--              class="board__item active min-w-[240px] flex items-start cursor-pointer transition duration-400 ease-in-out focus:outline-none hover:opacity-80 text-[#828FA3] text-[15px]">-->
-            <!--              <button-->
-            <!--                class="btn active board__link w-full flex items-center gap-4 text-[#828fa3] rounded-r-full text-left font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[15px] focus:outline-none hover:bg-btn-hover-color hover:text-primary-color md:mr-6 p-[10px] md:py-4 px-6"-->
-            <!--                href="#" itemid="1">-->
-            <!--                <i class="icon-layout block mr-4"></i>-->
-            <!--                <span class="block pr-15">Platform Launch</span>-->
-            <!--              </button>-->
-            <!--            </li>-->
 
-          </ul>
-          <!-- ADD NEW BOARD -->
-          <button
-            class=" btn addNewBoard text-[#635FC7] text-[15px] cursor-pointer pr-6 py-4 transition duration-200 ease-in-out focus:outline-none hover:opacity-80">
-            <i class="icon-layout inline pl-8 fill-purple-500"></i>
-            + Create New Board
-          </button>
+          <div class="flex items-center gap-4 md:gap-6">
+            <!-- ADD NEW TASK BUTTON -->
+            <button
+              modal-id="add-task-modal"
+              class="toggle-modal-button btn w-full rounded-full text-center font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[15px] focus:outline-none hover:bg-primary-light-color bg-primary-color text-white md:mr-6 p-[10px] md:py-4 px-6"
+              role="button"
+            >
+              +
+              <span class="hidden md:inline-block">Add New Task</span>
+            </button>
+            <!-- TRIPLE DOTS -->
+
+            <i class="icon-menu cursor-pointer text-color"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN -->
+      <main class="relative flex w-full h-full">
+        <!-- SIDEBAR -->
+        <aside
+          class="sidebar pr-6 min-w-[300px] md:border-r-2 md:shadow-none shadow-md shadow-indigo-500 border-lines-color md:flex md:flex-col justify-between md:items-center transition duration-200 ease-in-out bg-content-color"
+        >
+          <!-- LOGO -->
+          <div class="flex flex-col w-full">
+            <!-- NUMBER OF BOARDS -->
+            <div
+              class="numberOfCreatedBoards uppercase py-4 pl-8 text-[#828FA3] font-bold tracking-wide text-[12px]"
+            ></div>
+            <!-- BOARDS CREATED -->
+            <ul
+              class="board-list w-full mr-6 md:flex md:flex-col"
+              id="boardList"
+            ></ul>
+
+            <!-- ADD NEW BOARD -->
+            <button
+              modal-id="add-board-modal"
+              class="addNewBoard toggle-modal-button text-[#635FC7] text-[15px] flex items-center gap-4 cursor-pointer font-bold px-6 py-4 transition duration-200 ease-in-out focus:outline-none hover:opacity-80"
+            >
+              <i class="icon-layout inline fill-purple-500"></i>
+              <span> + Create New Board </span>
+            </button>
+          </div>
+
+          <div class="flex flex-col w-full">
+            <!-- THEME TOGGLE -->
+            <div
+              class="flex items-center m-3 md:m-0 justify-center w-full gap-4 py-[14px] bg-page-color rounded-2xl"
+            >
+              <i class="icon-sun text-[#828FA3]"></i>
+              <!-- TOGGLE -->
+              <div
+                class="theme-toggler pointer-events-auto cursor-pointer h-6 w-10 rounded-full p-1 ring-1 ring-inset transition duration-300 ease-in-out bg-primary-color hover:opacity-80"
+              >
+                <div
+                  class="h-4 w-4 rounded-full bg-white shadow-sm ring-1 ring-slate-700/10 transition duration-200 ease-in-out"
+                ></div>
+              </div>
+              <i class="icon-moon text-[#828FA3]"></i>
+            </div>
+            <!-- SIDEBAR HIDER -->
+
+            <button
+              class="btn sidebar-hider rounded-full w-full mt-2 mb-8 text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none hover:bg-btn-light-color text-primary-color"
+            >
+              <i class="icon-eye-close text-primary-color font-bold"></i>
+              Hide Sidebar
+            </button>
+          </div>
+        </aside>
+        <!-- SIDEBAR REVEALER -->
+        <div
+          class="sidebar-revealer hidden md:block absolute left-0 bottom-28 py-5"
+        >
+          <i
+            class="icon-eye btn rounded-r-full text-[16px] text-[#fff] hover:bg-primary-light-color cursor-pointer px-6 py-5 bg-primary-color transition duration-200 ease-in-out focus:outline-none"
+          ></i>
         </div>
 
-        <div class="flex flex-col w-full">
-          <!-- THEME TOGGLE -->
-          <div class="flex items-center m-3 md:m-0 justify-center w-full gap-4 py-[14px] bg-page-color rounded-2xl">
-            <i class="icon-sun text-[#828FA3]"></i>
-            <!-- TOGGLE -->
+        <!-- LAYOUT -->
+        <section
+          id="playGround"
+          class="w-full h-full flex flex-row z-auto flex-1 border-t-2 border-lines-color overflow-scroll gap-8 p-6"
+        >
+          <div
+            class="toggle-modal-button bg-gradient-to-br from-[#995eb40a] to-[#723b8883] mt-12"
+            id="newColumn"
+            modal-id="edit-board-modal"
+          >
+            <span
+              class="text-color text-center mt-16 text-slate-500 capitalize text-2xl"
+              ><span class="text-3xl text-center">+</span> New Column</span
+            >
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Add Board modal -->
+    <div
+      class="w-full h-full absolute overlay hidden top-0 left-0 items-center justify-center"
+    >
+      <div
+        class="relative modal hidden max-w-[480px] max-h-[85vh] overflow-y-auto w-full mx-auto z-20 bg-content-color p-6 sm:p-8"
+        id="add-board-modal"
+      >
+        <div class="h-full">
+          <i
+            class="icon-close close-modal absolute top-6 right-6 sm:top-8 sm:right-8 cursor-pointer text-color hover:text-danger-color duration-150 active:text-danger-light-color"
+          ></i>
+          <div class="">
+            <h3 class="text-color text-[18px] font-bold">Add New Board</h3>
+          </div>
+          <div
+            class="relative form-label flex flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
+          >
             <div
-              class="theme-toggler pointer-events-auto cursor-pointer h-6 w-10 rounded-full p-1 ring-1 ring-inset transition duration-300 ease-in-out bg-primary-color hover:opacity-80">
+              class="column-inputs-wrapper flex items-center flex-col gap-2 w-full"
+            >
+              <h3 class="text-left w-full mt-6">Name</h3>
+
               <div
-                class="h-4 w-4 rounded-full bg-white shadow-sm ring-1 ring-slate-700/10 transition duration-200 ease-in-out">
+                class="relative flex w-full flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
+              >
+                <input
+                  class="modal-input block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
+                  type="text"
+                  placeholder="e.g. Web Design"
+                />
+                <span
+                  class="input-span hidden absolute top-2 right-4 text-[#ea5555] font-medium leading-[23px] not-italic text-[13px]"
+                  >Can’t be empty</span
+                >
+              </div>
+              <h3 class="text-left w-full">Columns</h3>
+
+              <div class="relative flex gap-4 w-full">
+                <input
+                  class="modal-input block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
+                  type="text"
+                  placeholder="e.g. Take coffee break"
+                />
+                <button
+                  type="button"
+                  class="button icon-close border-transparent bg-transparent duration-200 hover:text-danger-color close-btn"
+                ></button>
+                <span
+                  class="input-span hidden absolute top-2 right-12 text-[#ea5555] font-medium leading-[23px] not-italic font-plus-jakarta-sans text-[13px]"
+                  >Can’t be empty</span
+                >
+              </div>
+              <div class="relative flex gap-4 w-full">
+                <input
+                  class="modal-input block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
+                  type="text"
+                  placeholder="e.g. Take coffee break"
+                />
+                <button
+                  type="button"
+                  class="button icon-close border-transparent bg-transparent duration-200 hover:text-danger-color close-btn"
+                ></button>
+                <span
+                  class="input-span hidden absolute top-2 right-12 text-[#ea5555] font-medium leading-[23px] not-italic font-plus-jakarta-sans text-[13px]"
+                  >Can’t be empty</span
+                >
               </div>
             </div>
-            <i class="icon-moon text-[#828FA3]"></i>
+
+            <button
+              class="addNewColumnButton btn mt-4 rounded-full w-full text-center py-2 font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 outline-none text-primary-color dark:bg-white bg-[#635fc71a] hover:bg-[#635FC740]"
+            >
+              + Add New Column
+            </button>
+            <button
+              type="submit"
+              class="createNewBoard btn mt-4 rounded-full w-full text-center py-2 font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 outline-none text-primary-color dark:bg-white bg-[#635fc71a] hover:bg-[#635FC740]"
+            >
+              Create New Board
+            </button>
           </div>
-          <!-- SIDEBAR HIDER -->
-          <button
-            class="btn sidebar-hider rounded-full w-full mt-2 mb-8 text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none hover:bg-btn-light-color text-primary-color">
-            <i class="icon-eye-close text-primary-color font-bold"></i> Hide Sidebar
-          </button>
         </div>
-      </aside>
-      <!-- LAYOUT -->
-      <section
-        class="w-full h-full flex flex-row z-auto  flex-1 border-t-2 border-lines-color overflow-scroll gap-8 p-8 pl-24 "
-        id="playGround"><!-- SIDEBAR REVEALER -->
-        <div class="absolute sidebar-revealer hidden md:block left-0 bottom-32 py-5 z-50">
+      </div>
+      <!-- Add Task modal -->
+
+      <div
+        class="relative modal hidden max-w-[480px] max-h-[85vh] overflow-y-auto w-full mx-auto z-20 bg-content-color p-6 sm:p-8"
+        id="add-task-modal"
+      >
+        <div class="h-full">
           <i
-            class="icon-eye btn rounded-r-full text-[16px] text-[#fff] hover:bg-primary-light-color cursor-pointer px-6 py-5 bg-[#635FC7] transition duration-200 ease-in-out focus:outline-none"></i>
-        </div>
-        <!--            <div id="columns" class="w-fit h-fit flex flex-row gap-8 ">-->
-        <div
-          class="column relative h-fit h-min-[60px] text-color flex flex-col items-start w-280 gap-5 overflow-visible">
+            class="icon-close close-modal absolute top-6 right-6 sm:top-8 sm:right-8 cursor-pointer text-color hover:text-danger-color duration-150 active:text-danger-light-color"
+          ></i>
+          <div class="">
+            <h3 class="text-color text-[18px] font-bold">Add New Task</h3>
+          </div>
           <div
-            class="status flex flex-row w-full bg-page-color items-center font-bold font-mono  text-slate-500 text-xs uppercase gap-2">
-            <div class="status__color h-4 w-4 gap-2 rounded-full bg-amber-300">
+            class="relative form-label flex flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
+          >
+            <div
+              class="task-inputs-wrapper mt-6 flex items-center flex-col gap-2 w-full"
+            >
+              <div
+                class="relative w-full flex flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
+              >
+                <h3 class="text-left w-full">Title</h3>
+                <input
+                  class="requiredput modal-input block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
+                  type="text"
+                  placeholder="e.g. Take coffee break"
+                />
+                <span
+                  class="input-span hidden absolute top-[55%] right-4 text-[#ea5555] font-medium leading-[23px] not-italic text-[13px]"
+                  >Can’t be empty</span
+                >
+              </div>
+              <div
+                for="textarea"
+                class="relative w-full mt-6 text-gray-color flex flex-col gap-2 not-italic text-[12px] font-bold leading-normal"
+              >
+                <h3 class="text-left w-full">Description</h3>
+                <textarea
+                  name="textarea"
+                  id="textarea"
+                  class="block modal-input bg-transparent w-full text-color resize-none pl-4 pr-[25px] font-medium leading-[23px] pb-[57px] pt-2 rounded right-1 border border-input-color focus:border-primary-color outline-none active:transition ease-in duration-200"
+                  placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."
+                ></textarea>
+              </div>
+              <div
+                class="relative w-full mt-6 text-gray-color flex flex-col gap-2 not-italic text-[12px] font-bold leading-normal"
+              >
+                <h3 class="text-left w-full">Subtasks</h3>
+                <div class="relative flex gap-4 w-full">
+                  <input
+                    class="modal-input block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
+                    type="text"
+                    placeholder="e.g. Take coffee break"
+                  />
+                  <button
+                    type="button"
+                    class="button icon-close border-transparent bg-transparent duration-200 hover:text-danger-color close-btn"
+                  ></button>
+                  <span
+                    class="input-span hidden absolute top-2 right-12 text-[#ea5555] font-medium leading-[23px] not-italic font-plus-jakarta-sans text-[13px]"
+                    >Can’t be empty</span
+                  >
+                </div>
+              </div>
             </div>
-            <span class="inline-block">Doing</span>
-            <span class="inline-block">(23)</span>
-          </div>
+            <div class="dropdown">
+              <div class="dropdown-menu relative w-full">
+                <div
+                  class="dropdown-btn status min-w-full w-full justify-between flex items-center px-4 py-2 rounded border focus:outline-none active:border-[#635FC7] group"
+                >
+                  <span
+                    class="dBtn-text m-0 text-gray-color cursor-pointer transition duration-400 ease-in-out text-[13px] leading-6"
+                    >Doing</span
+                  >
+                  <span class="dropdown-sign">
+                    <svg
+                      class="ml-10"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="11"
+                      height="8"
+                      viewBox="0 0 11 8"
+                      fill="none"
+                    >
+                      <path
+                        d="M0.79834 1.54858L5.49682 6.24707L10.1953 1.54858"
+                        stroke="#635FC7"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </span>
+                </div>
 
+                <ul
+                  class="dropdown-options w-full hidden mt-2 rounded bg-page-color"
+                ></ul>
+              </div>
+            </div>
+
+            <button
+              class="addNewTaskButton btn rounded-full w-full text-center py-2 font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 outline-none text-primary-color dark:bg-white bg-[#635fc71a] hover:bg-[#635FC740]"
+            >
+              + Add New Column
+            </button>
+            <button
+              type="submit"
+              class="createNewTask btn mt-6 rounded-full w-full text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none bg-primary-color text-white hover:bg-primary-light-color"
+            >
+              Create New Task
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Edit Task modal -->
+
+      <div
+        class="relative modal hidden max-w-[480px] max-h-[85vh] overflow-y-auto w-full mx-auto z-20 bg-content-color p-6 sm:p-8"
+        id="edit-task-modal"
+      >
+        <div class="h-full">
+          <i
+            class="icon-close close-modal absolute top-6 right-6 sm:top-8 sm:right-8 cursor-pointer text-color hover:text-danger-color duration-150 active:text-danger-light-color"
+          ></i>
+          <div class="">
+            <h3 class="text-color text-[18px] font-bold">Edit Task</h3>
+          </div>
           <div
-            class="card  bg-content-color w-280 h-fit py-6 px-4 rounded-lg font-bold shadow-sh-color shadow-sm hover:cursor-pointer  hover:text-primary-color subpixel-antialiased">
-            <p class="card__title text-color capitalize hover:text-primary-color">
-              Rustni o'rganish
-            </p>
-            <span class="card__status text-slate-500">1 of 5 subtasks</span>
+            class="relative form-label flex flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
+          >
+            <div
+              class="task-inputs-wrapper mt-6 flex items-center flex-col gap-2 w-full"
+            >
+              <div
+                class="relative w-full flex flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
+              >
+                <h3 class="text-left w-full">Title</h3>
+                <input
+                  id="edit-task-title"
+                  class="requiredput modal-input block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
+                  type="text"
+                  placeholder="e.g. Take coffee break"
+                />
+                <span
+                  class="input-span hidden absolute top-[55%] right-4 text-[#ea5555] font-medium leading-[23px] not-italic text-[13px]"
+                  >Can’t be empty</span
+                >
+              </div>
+              <div
+                for="textarea"
+                class="relative w-full mt-6 text-gray-color flex flex-col gap-2 not-italic text-[12px] font-bold leading-normal"
+              >
+                <h3 class="text-left w-full">Description</h3>
+                <textarea
+                  id="edit-task-description"
+                  name="textarea"
+                  class="block modal-input bg-transparent w-full text-color resize-none pl-4 pr-[25px] font-medium leading-[23px] pb-[57px] pt-2 rounded right-1 border border-input-color focus:border-primary-color outline-none active:transition ease-in duration-200"
+                  placeholder="e.g. It’s always good to take a break. This 15-minute break will recharge the batteries a little."
+                ></textarea>
+              </div>
+              <!-- Other fields go here -->
+            </div>
+
+            <button
+              class="addNewTaskButton btn rounded-full w-full text-center py-2 font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 outline-none text-primary-color dark:bg-white bg-[#635fc71a] hover:bg-[#635FC740]"
+            >
+              + Add New Column
+            </button>
+            <button
+              type="submit"
+              id="save-changes-button"
+              class="createNewTask btn mt-6 rounded-full w-full text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none bg-primary-color text-white hover:bg-primary-light-color"
+            >
+              Save changes
+            </button>
           </div>
         </div>
-        <div
-          class="toggle-modal-button w-280 h-fit mt-9 flex rounded-md bg-gradient-primary cursor-pointer items-center content-center overflow-visible p-5 mb-48"
-          id="newColumn" modal-id="edit-board-modal">
-          <span class="text-color text-center text-slate-500 capitalize text-2xl"><span
-              class="text-3xl text-center">+</span> New Column</span>
+      </div>
+      <!-- Edit Board modal -->
+
+      <div
+        class="relative modal hidden max-w-[480px] max-h-[85vh] overflow-y-auto w-full mx-auto z-20 bg-content-color p-6 sm:p-8"
+        id="edit-board-modal"
+      >
+        <div class="h-full">
+          <i
+            class="icon-close close-modal absolute top-6 right-6 sm:top-8 sm:right-8 cursor-pointer text-color hover:text-danger-color duration-150 active:text-danger-light-color"
+          ></i>
+          <div class="">
+            <h3 class="text-color text-[18px] font-bold">Edit Task</h3>
+          </div>
+          <div
+            class="relative form-label flex flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
+          >
+            <div
+              class="task-inputs-wrapper mt-6 flex items-center flex-col gap-2 w-full"
+            >
+              <div
+                class="relative w-full flex flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
+              >
+                <h3 class="text-left w-full">Title</h3>
+                <input
+                  id="edit-task-title"
+                  class="requiredput modal-input block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
+                  type="text"
+                  placeholder="e.g. Take coffee break"
+                />
+                <span
+                  class="input-span hidden absolute top-[55%] right-4 text-[#ea5555] font-medium leading-[23px] not-italic text-[13px]"
+                  >Can’t be empty</span
+                >
+              </div>
+              <div
+                for="textarea"
+                class="relative w-full mt-6 text-gray-color flex flex-col gap-2 not-italic text-[12px] font-bold leading-normal"
+              >
+                <h3 class="text-left w-full">Description</h3>
+                <textarea
+                  id="edit-task-description"
+                  name="textarea"
+                  class="block modal-input bg-transparent w-full text-color resize-none pl-4 pr-[25px] font-medium leading-[23px] pb-[57px] pt-2 rounded right-1 border border-input-color focus:border-primary-color outline-none active:transition ease-in duration-200"
+                  placeholder="e.g. It’s always good to take a break. This 15-minute break will recharge the batteries a little."
+                ></textarea>
+              </div>
+              <!-- Other fields go here -->
+            </div>
+
+            <button
+              class="addNewTaskButton btn rounded-full w-full text-center py-2 font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 outline-none text-primary-color dark:bg-white bg-[#635fc71a] hover:bg-[#635FC740]"
+            >
+              + Add New Column
+            </button>
+            <button
+              type="submit"
+              id="save-changes-button"
+              class="createNewTask btn mt-6 rounded-full w-full text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none bg-primary-color text-white hover:bg-primary-light-color"
+            >
+              Save changes
+            </button>
+          </div>
         </div>
-        <!--            </div>-->
+      </div>
 
-      </section>
-    </main>
+      <div
+        class="relative modal hidden max-w-[480px] max-h-[85vh] overflow-y-auto w-full mx-auto z-20 bg-content-color p-6 sm:p-8"
+        id="open-task-modal"
+      ></div>
+    </div>
 
-  </div>
+    <div
+      class="blocker hidden w-full h-full absolute z-100 bg-black opacity-40"
+    ></div>
 
+    <!-- JAVASCRIPT LINKS -->
 
-
-  <!-- JAVASCRIPT LINKS -->
-
-  <script src="/js/main.js"></script>
-  <script src="/js/dataBase.js"></script>
-  <!--    <script src="/js/render.js"></script>-->
-  <script src="/components/header/header.js"></script>
-  <script src="/components/sidebar/sidebar.js"></script>
-  <script src="/components/layout/layout.js"></script>
-  <script src="/components/card/card.js"></script>
-  <script src="/components/form/input/input.js"></script>
-  <script src="/components/form/dropdown/dropdown.js"></script>
-  <script src="/components/modal/modal.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    renderUI()
-  </script>
-</body>
-
+    <script src="/js/main.js"></script>
+    <script src="/components/card/card.js"></script>
+    <script src="/components/header/header.js"></script>
+    <script src="/components/modal/modal.js"></script>
+    <script src="/components/sidebar/sidebar.js"></script>
+    <script src="/components/form/dropdown/dropdown.js"></script>
+    <script src="/components/layout/layout.js"></script>
+  </body>
 </html>

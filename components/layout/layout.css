@@ -16,10 +16,13 @@
   overflow: hidden;
   transform: translate(0);
   width: max-content;
+  max-height: 90vh;
+  z-index: 0;
 }
 .sidebar.active {
   display: block;
   position: absolute;
+  z-index: 1000;
   top: 20px;
   left: 20px;
   border-radius: 10px;
@@ -76,3 +79,4 @@
 /* .sidebar-toggler{
 
 } */
+
