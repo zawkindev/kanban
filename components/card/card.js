@@ -31,6 +31,7 @@ function cardJS() {
   }
 
   makeMouseScrollable(document.querySelector('#playGround'))
+
   while (dragging) {
     isDragging = false
     startPosition = { x: 0, y: 0 }
@@ -77,7 +78,6 @@ function cardJS() {
 
   function dragOver(e) {
     e.preventDefault()
-
     dragging = true
     draggingColumn = this.closest('.column')
     e.dataTransfer.dropEffect = 'move'
@@ -134,7 +134,6 @@ function cardJS() {
     scrollLeft = 0
     scrollTop = 0
 
-    makeMouseScrollable(playGround)
 
     const newColumn = document.querySelector('#newColumn')
     newColumn.style.height = `${findColumnWithLargestHeight().scrollHeight - 34}px`
