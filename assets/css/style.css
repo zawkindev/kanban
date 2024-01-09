@@ -35,7 +35,11 @@ body.active {
 
 #newColumn {
   justify-content: center;
-  min-width: 280px;
+  min-height: 200px;
+}
+
+.column{
+  min-height: 200px;
 }
 
 .card {
